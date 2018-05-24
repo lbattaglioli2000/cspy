@@ -19,7 +19,7 @@ Route::get('/overview', function () {
 });
 // AUTHENTICATION ROUTES
 Auth::routes();
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 // ADMINISTRATION ROUTES
 Route::prefix('admin')->group(function(){
     Route::get('/logout', 'Auth\AdminLoginController@destroy')->name('admin.logout');
