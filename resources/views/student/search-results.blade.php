@@ -35,9 +35,9 @@
                             <div class="card-body">
                                 <p><b>Lesson Description:</b><br> {!! html_entity_decode($lesson->description) !!}</p>
                                 <ul>
-                                  <li><a href="/unit/{{ $lesson->unit->id }}/lesson/{{ $lesson->id }}/lecture">Lecture</a></li>
-                                  <li><a href="/unit/{{ $lesson->unit->id }}/lesson/{{ $lesson->id }}/recap">Recap</a></li>
-                                  <li><a href="/unit/{{ $lesson->unit->id }}/lesson/{{ $lesson->id }}/challenge">Challenge</a></li>
+                                  <li><a href="/student/unit/{{ $lesson->unit->id }}/lesson/{{ $lesson->id }}/lecture">Lecture</a></li>
+                                  <li><a href="/student/unit/{{ $lesson->unit->id }}/lesson/{{ $lesson->id }}/recap">Recap</a></li>
+                                  <li><a href="/student/unit/{{ $lesson->unit->id }}/lesson/{{ $lesson->id }}/challenge">Challenge</a></li>
                                 </ul>
                             </div>
                         </div>
