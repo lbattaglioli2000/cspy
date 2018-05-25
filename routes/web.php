@@ -56,6 +56,10 @@ Route::prefix('/student')->group(function(){
     Route::get('/', 'HomeController@index')->name('student');
     Route::get('/chat', 'HomeController@chat')->name('student.chat');
     Route::get('/notifications', 'HomeController@notifications')->name('student.notifications');
+
+    // Search handler
+    Route::get('/search', 'SearchController@lesson')->name('student.search');
+
     // Student handler for Lectures
     Route::get('/unit/{unit}/lesson/{lesson}/lecture', 'CourseController@lecture')->name('student.lecture');
     // Student handler for Recaps

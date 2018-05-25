@@ -25,7 +25,6 @@
                 <td>{{ $admin->name }}</td>
                 <td>{{ $admin->email }}</td>
                 <td><a href="{{ url('admin/admins/delete/' . $admin->id) }}" class="btn btn-block btn-outline-danger">Delete</a></td>
-
             </tr>
         @endforeach
         </tbody>

@@ -2,13 +2,15 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use App\Unit;
 use App\Lecture;
 
 class Lesson extends Model
 {
-
+    use Searchable;
+    
     public function unit()
     {
         return $this->belongsTo(Unit::class);
