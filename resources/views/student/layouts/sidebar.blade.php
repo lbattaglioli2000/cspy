@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('student/notifications') ? 'active' : null }}" href="{{ route('student.notifications') }}">
+                <a class="nav-link {{ Request::is('student/notifications') ? 'active' : null }}" href="{{ route('student.settings') }}">
                     <i data-feather="settings"></i>
                     Settings
                 </a>
