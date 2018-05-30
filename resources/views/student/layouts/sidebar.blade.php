@@ -19,6 +19,12 @@
                     Notifications
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('student/notifications') ? 'active' : null }}" href="{{ route('student.notifications') }}">
+                    <i data-feather="settings"></i>
+                    Settings
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
