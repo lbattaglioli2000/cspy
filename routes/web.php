@@ -59,6 +59,8 @@ Route::prefix('/student')->group(function(){
     Route::get('/chat', 'HomeController@chat')->name('student.chat');
     Route::get('/notifications', 'HomeController@notifications')->name('student.notifications');
     Route::get('/settings', 'HomeController@settings')->name('student.settings');
+    Route::get('/cloud9', 'HomeController@cloud9')->name('student.settings');
+
     // Search handler
     Route::get('/search', 'SearchController@lesson')->name('student.search');
 

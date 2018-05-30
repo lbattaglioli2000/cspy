@@ -54,4 +54,17 @@ class HomeController extends Controller
     {
       return view('student.settings');
     }
+
+    public function cloud9()
+    {
+      return view('student.cloud9');
+    }
+
+    public function cloud9Post(Request $request)
+    {
+      $name = $request->name;
+      $email = $request->email;
+
+      
+    }
 }
