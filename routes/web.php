@@ -33,9 +33,11 @@ Route::prefix('admin')->group(function(){
     Route::get('/admins', 'Auth\AdminController@admins')->name('admin.admins');
     Route::get('/admins/delete/{id}', 'Auth\AdminController@deleteAdmin')->name('admin.admins.delete');
     Route::post('/admins/new', 'Auth\AdminController@newAdmin')->name('admin.admins.new');
+
     // Admin - Unit management services
     Route::get('/new/unit', 'UnitController@index')->name('admin.new.unit');
     Route::post('/new/unit/publish', 'UnitController@post')->name('admin.new.unit.publish');
+
     // Admin - Lesson management services
     Route::get('/new/lesson', 'LessonController@index')->name('admin.new.lesson');
     Route::post('/new/lesson', 'LessonController@post')->name('admin.new.lesson.publish');
@@ -56,7 +58,7 @@ Route::prefix('/student')->group(function(){
     Route::get('/', 'HomeController@index')->name('student');
     Route::get('/chat', 'HomeController@chat')->name('student.chat');
     Route::get('/notifications', 'HomeController@notifications')->name('student.notifications');
-
+    Route::get('/settings', 'HomeController@settings')->name('student.settings');
     // Search handler
     Route::get('/search', 'SearchController@lesson')->name('student.search');
 

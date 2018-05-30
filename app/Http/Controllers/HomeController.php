@@ -49,4 +49,9 @@ class HomeController extends Controller
       ]);
 
     }
+
+    public function settings()
+    {
+      return view('student.settings');
+    }
 }
