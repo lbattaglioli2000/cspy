@@ -33,10 +33,12 @@ class AdminController extends Controller
     {
         $units = Unit::all();
         $notifications = Notification::all();
+        $users = User::all();
 
         return view('admin.dashboard', [
           'units' => $units,
-          'notifications' => $notifications
+          'notifications' => $notifications,
+          'users' => $users
         ]);
     }
 

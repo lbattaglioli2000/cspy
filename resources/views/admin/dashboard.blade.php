@@ -58,6 +58,25 @@
         </table>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+          <div class="card-header">Userbase</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ count($users) }} Registered Users</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+          <div class="card-header">Course Information</div>
+          <div class="card-body">
+            <h5 class="card-title">{{count($units) .  " " . str_plural('Unit', count($units)) }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
     <br>
 
 @endsection
