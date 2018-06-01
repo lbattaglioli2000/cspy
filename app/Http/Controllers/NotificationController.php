@@ -46,7 +46,7 @@ class NotificationController extends Controller
     $notification->save();
 
     $users = User::all();
-    Mail::to($users)->send(new NewNotification($notification));
+    Mail::bcc($users)->send(new NewNotification($notification));
 
     return redirect(route('admin.new.notification'));
 
