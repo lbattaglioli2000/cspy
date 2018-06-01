@@ -33,7 +33,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/admins', 'Auth\AdminController@admins')->name('admin.admins');
     Route::get('/admins/delete/{id}', 'Auth\AdminController@deleteAdmin')->name('admin.admins.delete');
     Route::post('/admins/new', 'Auth\AdminController@newAdmin')->name('admin.admins.new');
-
+    // Admin - Cloud9 Request Management
+    Route::get('/admin/request/delete/{id}', 'Auth\AdminController@deleteRequest')->name('admin.request.delete');
     // Admin - Unit management services
     Route::get('/new/unit', 'UnitController@index')->name('admin.new.unit');
     Route::post('/new/unit/publish', 'UnitController@post')->name('admin.new.unit.publish');
@@ -56,10 +57,14 @@ Route::prefix('admin')->group(function(){
 // STUDENT ROUTES
 Route::prefix('/student')->group(function(){
     Route::get('/', 'HomeController@index')->name('student');
-    Route::get('/chat', 'HomeController@chat')->name('student.chat');
     Route::get('/notifications', 'HomeController@notifications')->name('student.notifications');
+
+    // Student account settings controllers
     Route::get('/settings', 'HomeController@settings')->name('student.settings');
-    Route::get('/cloud9', 'HomeController@cloud9')->name('student.settings');
+    Route::post('/settings/password/change', 'HomeController@updatePassword')->name('student.password.update');
+
+    Route::get('/cloud9', 'HomeController@cloud9')->name('student.cloud9');
+    Route::post('/cloud9', 'HomeController@cloud9Request')->name('student.cloud9.request');
 
     // Search handler
     Route::get('/search', 'SearchController@lesson')->name('student.search');

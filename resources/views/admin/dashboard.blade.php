@@ -60,7 +60,7 @@
     </div>
     <div class="row">
       <div class="col-md-3">
-        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+        <div class="card text-white bg-info mb-3">
           <div class="card-header">Userbase</div>
           <div class="card-body">
             <h5 class="card-title">{{ count($users) }} Registered Users</h5>
@@ -69,14 +69,63 @@
       </div>
 
       <div class="col-md-3">
-        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+        <div class="card text-white bg-success mb-3">
           <div class="card-header">Course Information</div>
           <div class="card-body">
             <h5 class="card-title">{{count($units) .  " " . str_plural('Unit', count($units)) }}</h5>
           </div>
         </div>
       </div>
+
+      <div class="col-md-3">
+        <div class="card text-white bg-warning mb-3">
+          <div class="card-header">Cloud9 Requests</div>
+          <div class="card-body">
+            <h5 class="card-title">{{count($requests) .  " " . str_plural('Request', count($units)) }} <a class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#c9-requests">View Requests</a></h5>
+          </div>
+        </div>
+      </div>
     </div>
     <br>
 
+    <!-- Modal -->
+    <div class="modal fade" id="c9-requests" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cloud9 Account Requests</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Delete request?</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                @foreach ($requests as $request)
+                  <tr>
+                    <td>{{ $request->id }}</td>
+                    <td>{{ $request->name }}</td>
+                    <td>{{ $request->email }}</td>
+                    <td><a href="{{ route('admin.request.delete', $request->id) }}" class="btn btn-block btn-lg btn-outline-danger">Delete?</a></td>
+                  </tr>
+                @endforeach
+
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 @endsection

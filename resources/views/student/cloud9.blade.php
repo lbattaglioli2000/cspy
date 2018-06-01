@@ -16,7 +16,26 @@
         looks right. We'll reach out to you personally with more information
         later, once we approve your request.</p>
 
-        <form action="" method="post">
+        <form action="{{ route('student.cloud9.request') }}" method="post">
+          {{ csrf_field() }}
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+
+              <h3>Uh-oh! You have an error!</h3>
+              <p>Have you submitted this before? If you have, you may alread have an account, or we're reviewing your request now. Please check your email or contact us for more information!</p>
+            </div>
+          @endif
+
+          <div class="flash-message">
+            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+              @if(Session::has('alert-' . $msg))
+
+              <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+              @endif
+            @endforeach
+          </div> <!-- end .flash-message -->
+
           <div class="form-group">
             <label for="name">Full name</label>
             <input type="text" value="{{ Auth::user()->name }}" class="form-control" id="name" name="name">
@@ -34,6 +53,12 @@
 
         </form>
 
+        <div class="card text-white bg-success mb-3" style="max-width: 25rem;">
+          <div class="card-header">Already have an account? Looking for the Cloud9 IDE?</div>
+          <div class="card-body">
+            <a href="https://c9.io/login" target="_blank" class="btn btn-outline-light btn-block btn-lg">Go to the Cloud9 IDE!</a>
+          </div>
+        </div>
     </div>
   </div>
 

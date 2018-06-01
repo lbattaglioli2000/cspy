@@ -7,6 +7,8 @@ use App\Unit;
 use App\User;
 use App\Notification;
 
+use DB;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
@@ -34,11 +36,13 @@ class AdminController extends Controller
         $units = Unit::all();
         $notifications = Notification::all();
         $users = User::all();
+        $requests = DB::table('account_requests')->select('*')->get();
 
         return view('admin.dashboard', [
           'units' => $units,
           'notifications' => $notifications,
-          'users' => $users
+          'users' => $users,
+          'requests' => $requests
         ]);
     }
 
@@ -102,5 +106,11 @@ class AdminController extends Controller
 
 
         return redirect("/admin/admins");
+    }
+
+    public function deleteRequest($id)
+    {
+      DB::table('account_requests')->where('id', '=', $id)->delete();
+      return redirect(route('admin'));
     }
 }

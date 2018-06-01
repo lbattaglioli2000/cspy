@@ -8,7 +8,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('student/chat') ? 'active' : null }}" href="{{ route("student.chat") }}">
+                <a class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg">
                     <i data-feather="send"></i>
                     Chat
                 </a>
@@ -23,6 +23,12 @@
                 <a class="nav-link {{ Request::is('student/settings') ? 'active' : null }}" href="{{ route('student.settings') }}">
                     <i data-feather="settings"></i>
                     Settings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('student/cloud9') ? 'active' : null }}" href="{{ route('student.cloud9') }}">
+                    <i data-feather="terminal"></i>
+                    Cloud9
                 </a>
             </li>
         </ul>

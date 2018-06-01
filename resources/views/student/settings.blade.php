@@ -9,8 +9,12 @@
       <h1 class="h2">Settings</h1>
   </div>
 
-  <div class="alert alert-info">
-    Settings are coming soon!
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-info">
+        <b>So sorry!</b> The settings are still under development. Please give us some time implement this.
+      </div>
+    </div>
   </div>
 
 @endsection

@@ -52,3 +52,27 @@
 
   gtag('config', 'UA-108145541-2');
 </script>
+
+<!-- Gitter Modal -->
+<div class="modal fade bd-example-modal-lg" id="gitter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Live Chat <small>Powered by Gitter.im</small></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <iframe frameborder="none" src="https://gitter.im/Open-CodeGeek/CSPY/~embed" width="100%" height="650px">
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
