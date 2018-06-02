@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAccountRequestsTable extends Migration
+class AlterAccountRequestsTableAddEmailAndPassword extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateAccountRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('account_requests', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-
-        });
+      Schema::create('account_requests', function (Blueprint $table) {
+          $table->string('email')->unique();
+          $table->string('name');
+      });
     }
 
     /**
@@ -27,6 +26,6 @@ class CreateAccountRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_requests');
+        //
     }
 }
