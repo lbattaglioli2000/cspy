@@ -18,6 +18,7 @@ class CreateAccountRequestsTable extends Migration
             $table->text('name');
             $table->string('email')->unique();
             $table->timestamps();
+            
         });
     }
 
