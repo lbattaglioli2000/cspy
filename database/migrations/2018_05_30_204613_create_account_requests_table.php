@@ -15,6 +15,8 @@ class CreateAccountRequestsTable extends Migration
     {
         Schema::create('account_requests', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
             $table->timestamps();
 
         });
