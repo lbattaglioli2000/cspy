@@ -23,7 +23,7 @@
           @if (count($errors) > 0)
             <div class="alert alert-danger">
               <h3>Uh-oh! You have an error!</h3>
-              <p>Have you submitted this before? If you have, you may alread have an account, or we're reviewing your request now. Please check your email or contact us for more information!</p>
+              <p>Have you submitted this before? If you have, you may already have an account, or we're reviewing your request now. Please check your email or contact us for more information!</p>
             </div>
           @endif
 
