@@ -36,7 +36,7 @@ class AdminController extends Controller
         $units = Unit::all();
         $notifications = Notification::all();
         $users = User::all();
-        $requests = DB::table('account_requests')->select('*')->get();
+        $requests = DB::table('c9_account_requests')->select('*')->get();
 
         return view('admin.dashboard', [
           'units' => $units,

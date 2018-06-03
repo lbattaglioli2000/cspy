@@ -68,33 +68,9 @@ class HomeController extends Controller
       $name = $request->name;
       $email = $request->email;
 
-      DB::table('account_requests')->insert(['name' => $name, 'email' => $email]);
+      DB::table('c9_account_requests')->insert(['name' => $name, 'email' => $email]);
 
       $request->session()->flash('alert-success', "Your request was submitted! We'll get back to you!");
       return redirect(route('student.cloud9'));
-    }
-
-    public function updatePassword(Request $request)
-    {
-      if (!(Hash::check($request->currentPassword, Auth::user()->password)))
-      {
-        // The passwords matches
-        return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
-      }
-
-      if(strcmp($request->currentPassword, $request->newPassword) == 0)
-      {
-        //Current password and new password are same
-        return redirect()->back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
-      }
-
-      $this->validate($request, [
-        'oldPassword' => 'required',
-        'newPassword' => 'required|string|min:6|confirmed'
-      ]);
-
-      $user = Auth::user();
-      $user->password = bcrypt($request->newPassword);
-      $user->save();
     }
 }
