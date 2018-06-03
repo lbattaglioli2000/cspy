@@ -62,7 +62,7 @@ class HomeController extends Controller
     {
       $this->validate($request, [
         'name' => 'required',
-        'email' => 'required|unique:account_requests'
+        'email' => 'required|unique:c9_account_requests'
       ]);
 
       $name = $request->name;
