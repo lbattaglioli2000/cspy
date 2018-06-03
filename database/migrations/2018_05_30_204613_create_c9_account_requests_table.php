@@ -29,6 +29,6 @@ class CreateC9AccountRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_requests');
+        Schema::dropIfExists('c9_account_requests');
     }
 }
