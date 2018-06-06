@@ -110,7 +110,7 @@ class AdminController extends Controller
 
     public function deleteRequest($id)
     {
-      DB::table('account_requests')->where('id', '=', $id)->delete();
+      DB::table('c9_account_requests')->where('id', '=', $id)->delete();
       return redirect(route('admin'));
     }
 }
