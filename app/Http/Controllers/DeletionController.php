@@ -16,21 +16,38 @@ class DeletionController extends Controller
 
     public function unit(Unit $unit)
     {
-      if($unit->exists() && !is_null($unit)){
+      if (!is_null($unit) && $unit->exists())
+      {
+        foreach ($unit->lessons as $lesson) {
+          if(!is_null($lesson) && $lesson->exists())
+          {
+
+            if(!is_null($lesson->lecture) && $lesson->lecture->exists())
+            {
+              $lesson->lecture->delete();
+            }
+            if(!is_null($lesson->recap) && $lesson->recap->exists())
+            {
+              $lesson->recap->delete();
+            }
+            if(!is_null($lesson->challenge) && $lesson->challenge->exists())
+            {
+              $lesson->challenge->delete();
+            }
+
+            $lesson->delete();
+
+          }
+        }
+        
         $unit->delete();
 
-        $lessons = $unit->lessons;
-
-        foreach ($lessons as $lesson) {
-          $lesson->remove();
-        }
-
-        Session::flash('message', "The unit, and all of its associated objects, were deleted.");
-        return redirect(back());
+        Session::flash('success-message', "The unit was deleted.");
+        return redirect('/admin/course/manage');
       }
 
-      Session::flash('message', "The unit doesn't exist!");
-      return redirect(back());
+      Session::flash('danger-message', "The unit doesn't exist!");
+      return redirect('/admin/course/manage');
 
     }
 

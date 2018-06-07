@@ -28,6 +28,31 @@
                 <div id="collapse{{ $unit->id }}" class="collapse" aria-labelledby="heading{{ $unit->id }}" data-parent="#accordion">
                     <div class="card-body">
                         <p><b>Unit Description:</b><br> {!! html_entity_decode($unit->description, ENT_QUOTES) !!}</p>
+                        <div class="card">
+                          <div class="card-body">
+                            <h3>Unit management</h3>
+                            <form action="/admin/course/manage/rename/unit/{{ $unit->id }}" method="post">
+                              {{ csrf_field() }}
+                              <div class="form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">Unit {{ $unit->id }}:</span>
+                                  </div>
+                                  <input type="hidden" value="{{ $unit->id }}" name="unit_id">
+                                  <input type="text" class="form-control" placeholder="New unit name for '{{ $unit->title }}'" name="name" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="input-group">
+                                  <button type="submit" class="btn btn-outline-primary">Update unit name</button>
+                                </div>
+                              </div>
+                            </form>
+                            <hr>
+                            <a href="/admin/course/manage/delete/unit/{{ $unit->id }}" class="btn btn-outline-danger">Delete enitre unit?</a>
+                          </div>
+                        </div>
+                        <hr>
                         @if(count($unit->lessons) > 0)
                             <table class="table table-bordered responsive">
 

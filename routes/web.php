@@ -14,42 +14,55 @@
 Route::get('/', function () {
     return view('home');
 });
+
 Route::get('/overview', function () {
     return view('overview');
 });
+
 // AUTHENTICATION ROUTES
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
 // ADMINISTRATION ROUTES
 Route::prefix('admin')->group(function(){
     Route::get('/logout', 'Auth\AdminLoginController@destroy')->name('admin.logout');
     Route::get('/login', 'Auth\AdminLoginController@index')->name("admin.login");
     Route::post("/login", 'Auth\AdminLoginController@post')->name('admin.login.submit');
     Route::get('/', 'Auth\AdminController@index')->name('admin');
+
     // Admin - User management service
     Route::get('/users', 'Auth\AdminController@users')->name('admin.users');
     Route::get('/users/delete/{id}', 'Auth\AdminController@deleteUser')->name('admin.users.delete');
+
     // Admin - Admin management service
     Route::get('/admins', 'Auth\AdminController@admins')->name('admin.admins');
     Route::get('/admins/delete/{id}', 'Auth\AdminController@deleteAdmin')->name('admin.admins.delete');
     Route::post('/admins/new', 'Auth\AdminController@newAdmin')->name('admin.admins.new');
+
     // Admin - Cloud9 Request Management
     Route::get('/admin/request/delete/{id}', 'Auth\AdminController@deleteRequest')->name('admin.request.delete');
+
     // Admin - Unit management services
     Route::get('/new/unit', 'UnitController@index')->name('admin.new.unit');
     Route::post('/new/unit/publish', 'UnitController@post')->name('admin.new.unit.publish');
 
-    // Admin - Course structure management
+    // Admin - Course structure management dashboard
     Route::get('/course/manage', 'Auth\AdminController@courseManager')->name('admin.manage');
+
+    // Admin - Course deletion management
     Route::get('/course/manage/delete/lesson/{lesson}/lecture', 'DeletionController@lecture')->name('admin.manage.delete.lesson.lecture');
     Route::get('/course/manage/delete/lesson/{lesson}/recap', 'DeletionController@recap')->name('admin.manage.delete.lesson.recap');
     Route::get('/course/manage/delete/lesson/{lesson}/challenge', 'DeletionController@challenge')->name('admin.manage.delete.lesson.challenge');
     Route::get('/course/manage/delete/lesson/{lesson}', 'DeletionController@lesson')->name('admin.manage.delete.lesson');
     Route::get('/course/manage/delete/unit/{unit}', 'DeletionController@unit')->name('admin.manage.delete.unit');
 
+    // Admin - Course naming management
+    Route::post('/course/manage/rename/unit/{unit}', 'RenameController@unit')->name('admin.manage.rename.unit');
+
     // Admin - Lesson management services
     Route::get('/new/lesson', 'LessonController@index')->name('admin.new.lesson');
     Route::post('/new/lesson', 'LessonController@post')->name('admin.new.lesson.publish');
+
     // Admin - Component management services
     Route::post('/new/lecture', 'LectureController@index')->name('admin.new.lecture');
     Route::post('/new/lecture/publish', 'LectureController@post')->name('admin.new.lecture.publish');
@@ -57,6 +70,7 @@ Route::prefix('admin')->group(function(){
     Route::post('/new/recap/publish', 'RecapController@post')->name('admin.new.recap.publish');
     Route::post('/new/challenge', 'ChallengeController@index')->name('admin.new.challenge');
     Route::post('/new/challenge/publish', 'ChallengeController@post')->name('admin.new.challenge.publish');
+
     // Admin - System alert management services
     Route::get('/new/notification', 'NotificationController@index')->name('admin.new.notification');
     Route::post('/new/notification/publish', 'NotificationController@post')->name('admin.new.notification.publish');
@@ -80,8 +94,10 @@ Route::prefix('/student')->group(function(){
 
     // Student handler for Lectures
     Route::get('/unit/{unit}/lesson/{lesson}/lecture', 'CourseController@lecture')->name('student.lecture');
+
     // Student handler for Recaps
     Route::get('/unit/{unit}/lesson/{lesson}/recap', 'CourseController@recap')->name('student.recap');
+
     // Student handler for Challenges
     Route::get('/unit/{unit}/lesson/{lesson}/challenge', 'CourseController@challenge')->name('student.challenge');
 });
