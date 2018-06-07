@@ -81,7 +81,7 @@
         <div class="card text-white bg-warning mb-3">
           <div class="card-header">Cloud9 Requests</div>
           <div class="card-body">
-            <h5 class="card-title">{{count($requests) .  " " . str_plural('Request', count($units)) }} <a class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#c9-requests">View Requests</a></h5>
+            <h5 class="card-title">{{count($requests) .  " " . str_plural('Request', count($units)) }} <a class="btn btn-sm btn-outline-light" href="#" data-toggle="modal" data-target="#c9-requests">View Requests</a></h5>
           </div>
         </div>
       </div>

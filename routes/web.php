@@ -39,6 +39,9 @@ Route::prefix('admin')->group(function(){
     Route::get('/new/unit', 'UnitController@index')->name('admin.new.unit');
     Route::post('/new/unit/publish', 'UnitController@post')->name('admin.new.unit.publish');
 
+    // Admin - Course structure management
+    Route::get('/course/manage', 'Auth\AdminController@courseManager')->name('admin.manage');
+
     // Admin - Lesson management services
     Route::get('/new/lesson', 'LessonController@index')->name('admin.new.lesson');
     Route::post('/new/lesson', 'LessonController@post')->name('admin.new.lesson.publish');
@@ -54,6 +57,7 @@ Route::prefix('admin')->group(function(){
     Route::post('/new/notification/publish', 'NotificationController@post')->name('admin.new.notification.publish');
     Route::get('/notification/delete/{id}', 'NotificationController@delete')->name('admin.notification.delete');
 });
+
 // STUDENT ROUTES
 Route::prefix('/student')->group(function(){
     Route::get('/', 'HomeController@index')->name('student');

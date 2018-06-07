@@ -113,4 +113,12 @@ class AdminController extends Controller
       DB::table('c9_account_requests')->where('id', '=', $id)->delete();
       return redirect(route('admin'));
     }
+
+    public function courseManager()
+    {
+      $units = Unit::all();
+      return view('admin.course-management', [
+        'units' => $units
+      ]);
+    }
 }

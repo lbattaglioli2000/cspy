@@ -33,6 +33,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/course/manage') ? 'active' : null }}" href="{{ route('admin.manage') }}">
+                    <span data-feather="database"></span>
+                    Course Management
+                </a>
+            </li>
+
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>Course Structure Tools</span>
             </h6>

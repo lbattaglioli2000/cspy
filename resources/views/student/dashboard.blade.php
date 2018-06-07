@@ -23,7 +23,7 @@
                         <div id="collapse{{ $unit->id }}" class="collapse" aria-labelledby="heading{{ $unit->id }}" data-parent="#accordion">
                             <div class="card-body">
                                 <p><b>Unit Description:</b><br> {!! html_entity_decode($unit->description, ENT_QUOTES) !!}</p>
-                                @if(count($lessons) > 0)
+                                @if(count($unit->lessons) > 0)
                                     <table class="table table-bordered responsive">
 
                                         <thead class="thead-dark">
@@ -39,7 +39,7 @@
                                         </thead>
 
                                         <tbody>
-                                            @foreach($lessons as $lesson)
+                                            @foreach($unit->lessons as $lesson)
                                                     @if($lesson->unit_id == $unit->id)
                                                         <tr>
                                                             <td>{{ $lesson->title }}</td>

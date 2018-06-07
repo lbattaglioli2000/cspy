@@ -30,11 +30,9 @@ class HomeController extends Controller
     public function index()
     {
         $units = Unit::all();
-        $lessons = Lesson::all();
 
         return view('student.dashboard', [
-            'units' => $units,
-            'lessons' => $lessons
+            'units' => $units
         ]);
     }
 
