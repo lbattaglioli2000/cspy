@@ -8,6 +8,12 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
         <h1>Course Management</h1>
     </div>
+    @if (Session::has('success-message'))
+       <div class="alert alert-success"><b>Hey!</b> {{ Session::get('success-message') }}</div>
+    @endif
+    @if (Session::has('danger-message'))
+       <div class="alert alert-danger"><b>Hey!</b> {{ Session::get('danger-message') }}</div>
+    @endif
     <div id="accordion">
       @if (count($units) > 0)
         @foreach($units as $unit)
@@ -42,9 +48,10 @@
                                             @if($lesson->unit_id == $unit->id)
                                                 <tr>
                                                     <td>{{ $lesson->title }}</td>
-                                                    <td><a class="btn btn-block btn-outline-primary" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/lecture"><i class="fas fa-video"></i></a></td>
-                                                    <td><a class="btn btn-block btn-outline-danger" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/recap"><i class="fas fa-book"></i></a></td>
-                                                    <td><a class="btn btn-block btn-outline-success" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/challenge"><i class="fas fa-code"></i></a></td>
+                                                    <td><a class="btn btn-block btn-outline-primary" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/lecture">Delete?</a></td>
+                                                    <td><a class="btn btn-block btn-outline-danger" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/recap">Delete?</a></td>
+                                                    <td><a class="btn btn-block btn-outline-success" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/challenge">Delete?</a></td>
+                                                    <td><a class="btn btn-block btn-outline-warning" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}">Delete entire lesson?</a></td>
                                                 </tr>
                                             @endif
                                     @endforeach

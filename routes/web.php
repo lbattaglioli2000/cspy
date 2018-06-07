@@ -41,6 +41,11 @@ Route::prefix('admin')->group(function(){
 
     // Admin - Course structure management
     Route::get('/course/manage', 'Auth\AdminController@courseManager')->name('admin.manage');
+    Route::get('/course/manage/delete/lesson/{lesson}/lecture', 'DeletionController@lecture')->name('admin.manage.delete.lesson.lecture');
+    Route::get('/course/manage/delete/lesson/{lesson}/recap', 'DeletionController@recap')->name('admin.manage.delete.lesson.recap');
+    Route::get('/course/manage/delete/lesson/{lesson}/challenge', 'DeletionController@challenge')->name('admin.manage.delete.lesson.challenge');
+    Route::get('/course/manage/delete/lesson/{lesson}', 'DeletionController@lesson')->name('admin.manage.delete.lesson');
+    Route::get('/course/manage/delete/unit/{unit}', 'DeletionController@unit')->name('admin.manage.delete.unit');
 
     // Admin - Lesson management services
     Route::get('/new/lesson', 'LessonController@index')->name('admin.new.lesson');
