@@ -39,7 +39,7 @@ class DeletionController extends Controller
 
           }
         }
-        
+
         $unit->delete();
 
         Session::flash('success-message', "The unit was deleted.");

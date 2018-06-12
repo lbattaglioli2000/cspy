@@ -73,9 +73,9 @@
                                             @if($lesson->unit_id == $unit->id)
                                                 <tr>
                                                     <td>{{ $lesson->title }}</td>
-                                                    <td><a class="btn btn-block btn-outline-primary" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/lecture">Delete?</a></td>
-                                                    <td><a class="btn btn-block btn-outline-danger" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/recap">Delete?</a></td>
-                                                    <td><a class="btn btn-block btn-outline-success" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/challenge">Delete?</a></td>
+                                                    <td><a class="btn btn-block btn-outline-primary {{ is_null($lesson->lecture) ? 'disabled' : null }}" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/lecture">Delete?</a></td>
+                                                    <td><a class="btn btn-block btn-outline-danger {{ is_null($lesson->recap) ? 'disabled' : null }}" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/recap">Delete?</a></td>
+                                                    <td><a class="btn btn-block btn-outline-success {{ is_null($lesson->challenge) ? 'disabled' : null }}" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/challenge">Delete?</a></td>
                                                     <td><a class="btn btn-block btn-outline-warning" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}">Delete entire lesson?</a></td>
                                                 </tr>
                                             @endif
