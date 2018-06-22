@@ -35,5 +35,17 @@ class UnitController extends Controller
         $unit->save();
 
         return redirect(route('admin.new.unit'));
-    }
+      }
+
+      public function edit(Request $request)
+      {
+        $unit = Unit::find($request->unit_id);
+
+        $unit->title = $request->name;
+        $unit->description= $request->description;
+
+        $unit->save();
+
+        return back();
+      }
 }

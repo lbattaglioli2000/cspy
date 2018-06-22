@@ -15,8 +15,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
+              @if (session('error'))
+                  <div class="alert alert-danger" role="alert">{{ session('error') }}</div>
+              @endif
                 <form method="POST" action="{{ route('login') }}">
-                    @csrf
+                    {{ csrf_field() }}
 
                     <div class="form-group row">
                                 <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

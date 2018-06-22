@@ -49,25 +49,37 @@ Route::prefix('admin')->group(function(){
     // Admin - Course structure management dashboard
     Route::get('/course/manage', 'Auth\AdminController@courseManager')->name('admin.manage');
 
-    // Admin - Course deletion management
+    // Admin - Course deletion services
     Route::get('/course/manage/delete/lesson/{lesson}/lecture', 'DeletionController@lecture')->name('admin.manage.delete.lesson.lecture');
     Route::get('/course/manage/delete/lesson/{lesson}/recap', 'DeletionController@recap')->name('admin.manage.delete.lesson.recap');
     Route::get('/course/manage/delete/lesson/{lesson}/challenge', 'DeletionController@challenge')->name('admin.manage.delete.lesson.challenge');
     Route::get('/course/manage/delete/lesson/{lesson}', 'DeletionController@lesson')->name('admin.manage.delete.lesson');
     Route::get('/course/manage/delete/unit/{unit}', 'DeletionController@unit')->name('admin.manage.delete.unit');
 
-    // Admin - Course naming management
-    Route::post('/course/manage/rename/unit/{unit}', 'RenameController@unit')->name('admin.manage.rename.unit');
+    // Admin - Course edit services
+    Route::post('/course/manage/edit/unit/{unit}', 'UnitController@edit')->name('admin.edit.unit');
+
+    Route::get('/course/manage/edit/lesson/{lesson}/lecture', 'LectureController@edit')->name('admin.edit.lesson.lecture');
+    Route::post('/course/manage/edit/lesson/{lesson}/lecture', 'LectureController@editPOST')->name('admin.edit.lesson.lecture.post');
+
+    Route::get('/course/manage/edit/lesson/{lesson}/recap', 'RecapController@edit')->name('admin.edit.lesson.recap');
+    Route::get('/course/manage/edit/lesson/{lesson}/challenge', 'ChallengeController@edit')->name('admin.edit.challenge');
+
+    Route::get('/course/manage/edit/lesson/{lesson}', 'LessonController@edit')->name('admin.edit.lesson');
 
     // Admin - Lesson management services
     Route::get('/new/lesson', 'LessonController@index')->name('admin.new.lesson');
     Route::post('/new/lesson', 'LessonController@post')->name('admin.new.lesson.publish');
 
-    // Admin - Component management services
+    // Admin - Lecture management services
     Route::post('/new/lecture', 'LectureController@index')->name('admin.new.lecture');
     Route::post('/new/lecture/publish', 'LectureController@post')->name('admin.new.lecture.publish');
+
+    // Admin - Recap management services
     Route::post('/new/recap', 'RecapController@index')->name('admin.new.recap');
     Route::post('/new/recap/publish', 'RecapController@post')->name('admin.new.recap.publish');
+
+    // Admin - Challenge management services
     Route::post('/new/challenge', 'ChallengeController@index')->name('admin.new.challenge');
     Route::post('/new/challenge/publish', 'ChallengeController@post')->name('admin.new.challenge.publish');
 
@@ -81,6 +93,11 @@ Route::prefix('admin')->group(function(){
 Route::prefix('/student')->group(function(){
     Route::get('/', 'HomeController@index')->name('student');
     Route::get('/notifications', 'HomeController@notifications')->name('student.notifications');
+
+    // Donation handlers
+    Route::get('/donate', 'DonationController@index')->name('donate');
+    Route::get('/donate/{ammount}', 'DonationController@confirm')->name('donate.confirm');
+    Route::post('/donate/charge', 'DonationController@charge')->name('donate.charge');
 
     // Student account settings controllers
     Route::get('/settings', 'HomeController@settings')->name('student.settings');

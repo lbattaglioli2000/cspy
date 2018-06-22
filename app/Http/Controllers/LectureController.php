@@ -47,4 +47,19 @@ class LectureController extends Controller
         return redirect(route("admin"));
 
     }
+
+    public function delete(Lesson $lesson)
+    {
+      $lesson->lecture->delete();
+      return back();
+    }
+
+    public function edit(Lesson $lesson){
+      return view('admin.edit.lecture', compact('lesson'));
+    }
+
+    public function editPOST()
+    {
+      // TODO: implement
+    }
 }

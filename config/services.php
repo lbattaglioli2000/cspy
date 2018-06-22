@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('mg.codegeek.org'),
-        'secret' => env('cb2cdda57cb3ad67f74c49e8b77a7375-115fe3a6-7987cd79'),
+        'domain' => env('MAILGUN_DOMAIN'),
+        'secret' => env('MAILGUN_SECRET'),
     ],
 
     'stripe' => [

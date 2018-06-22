@@ -1,13 +1,13 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    New Lecture
+    Edit Lecture
 @endsection
 
 @section('content')
-    <h1>New Lecture</h1>
+    <h1>Edit Lecture</h1>
 
-    <form method="post" action="{{ route("admin.new.lecture.publish") }}">
+    <form method="post" action="{{ route("admin.edit.lecture.publish") }}">
         @if($errors->any())
             <div class="alert alert-danger">
                 <h2>Error!</h2>

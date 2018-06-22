@@ -43,9 +43,9 @@
                                                     @if($lesson->unit_id == $unit->id)
                                                         <tr>
                                                             <td>{{ $lesson->title }}</td>
-                                                            <td><a class="btn btn-block btn-outline-primary" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/lecture"><i class="fas fa-video"></i></a></td>
-                                                            <td><a class="btn btn-block btn-outline-danger" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/recap"><i class="fas fa-book"></i></a></td>
-                                                            <td><a class="btn btn-block btn-outline-success" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/challenge"><i class="fas fa-code"></i></a></td>
+                                                            <td><a class="btn btn-block btn-outline-primary {{ is_null($lesson->lecture) ? 'disabled' : null }}" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/lecture"><i class="fas fa-video"></i></a></td>
+                                                            <td><a class="btn btn-block btn-outline-danger {{ is_null($lesson->recap) ? 'disabled' : null }}" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/recap"><i class="fas fa-book"></i></a></td>
+                                                            <td><a class="btn btn-block btn-outline-success {{ is_null($lesson->challenge) ? 'disabled' : null }}" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/challenge"><i class="fas fa-code"></i></a></td>
                                                         </tr>
                                                     @endif
                                             @endforeach

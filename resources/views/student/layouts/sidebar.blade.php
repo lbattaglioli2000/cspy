@@ -31,6 +31,12 @@
                     Cloud9
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('student/donate') ? 'active' : null }}" href="{{ route('donate') }}">
+                    <i data-feather="dollar-sign"></i>
+                    Donate
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

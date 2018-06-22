@@ -31,7 +31,8 @@
                         <div class="card">
                           <div class="card-body">
                             <h3>Unit management</h3>
-                            <form action="/admin/course/manage/rename/unit/{{ $unit->id }}" method="post">
+
+                            <form action="/admin/course/manage/edit/unit/{{ $unit->id }}" method="post">
                               {{ csrf_field() }}
                               <div class="form-group">
                                 <div class="input-group">
@@ -39,12 +40,17 @@
                                     <span class="input-group-text">Unit {{ $unit->id }}:</span>
                                   </div>
                                   <input type="hidden" value="{{ $unit->id }}" name="unit_id">
-                                  <input type="text" class="form-control" placeholder="New unit name for '{{ $unit->title }}'" name="name" aria-describedby="inputGroup-sizing-default">
+                                  <input type="text" class="form-control" value="{{ $unit->title }}" name="name" aria-describedby="inputGroup-sizing-default">
                                 </div>
                               </div>
                               <div class="form-group">
                                 <div class="input-group">
-                                  <button type="submit" class="btn btn-outline-primary">Update unit name</button>
+                                  <textarea class="form-control" id="body" value="{{ $unit->description }}" name="description" rows="2">{!! $unit->description !!}</textarea>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="input-group">
+                                  <button type="submit" class="btn btn-outline-primary">Update unit</button>
                                 </div>
                               </div>
                             </form>
@@ -73,10 +79,38 @@
                                             @if($lesson->unit_id == $unit->id)
                                                 <tr>
                                                     <td>{{ $lesson->title }}</td>
-                                                    <td><a class="btn btn-block btn-outline-primary {{ is_null($lesson->lecture) ? 'disabled' : null }}" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/lecture">Delete?</a></td>
-                                                    <td><a class="btn btn-block btn-outline-danger {{ is_null($lesson->recap) ? 'disabled' : null }}" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/recap">Delete?</a></td>
-                                                    <td><a class="btn btn-block btn-outline-success {{ is_null($lesson->challenge) ? 'disabled' : null }}" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/challenge">Delete?</a></td>
-                                                    <td><a class="btn btn-block btn-outline-warning" href="/admin/course/manage/delete/lesson/{{ $lesson->id }}">Delete entire lesson?</a></td>
+
+                                                    <td>
+                                                      <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                                        <a href="/admin/course/manage/delete/lesson/{{ $lesson->id }}/lecture" class="btn btn-danger {{ is_null($lesson->lecture) ? 'disabled' : null }}"><i class="far fa-trash-alt"></i></a>
+                                                        <a href="/admin/course/manage/edit/lesson/{{ $lesson->id }}/lecture" class="btn btn-warning {{ is_null($lesson->lecture) ? 'disabled' : null }}"><i class="fas fa-edit"></i></a>
+                                                        <a href="/student/unit/{{ $lesson->unit->id }}/lesson/{{ $lesson->id }}/lecture" target="_blank" class="btn btn-success {{ is_null($lesson->lecture) ? 'disabled' : null }}"><i class="fas fa-search"></i></a>
+                                                      </div>
+                                                    </td>
+
+                                                    <td>
+                                                      <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                                        <a href="#" class="btn btn-danger {{ is_null($lesson->recap) ? 'disabled' : null }}"><i class="far fa-trash-alt"></i></a>
+                                                        <a href="#" class="btn btn-warning {{ is_null($lesson->recap) ? 'disabled' : null }}"><i class="fas fa-edit"></i></a>
+                                                        <a href="#" class="btn btn-success {{ is_null($lesson->recap) ? 'disabled' : null }}"><i class="fas fa-search"></i></a>
+                                                      </div>
+                                                    </td>
+
+                                                    <td>
+                                                      <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                                        <a href="#" class="btn btn-danger {{ is_null($lesson->challenge) ? 'disabled' : null }}"><i class="far fa-trash-alt"></i></a>
+                                                        <a href="#" class="btn btn-warning {{ is_null($lesson->challenge) ? 'disabled' : null }}"><i class="fas fa-edit"></i></a>
+                                                        <a href="#" class="btn btn-success {{ is_null($lesson->challenge) ? 'disabled' : null }}"><i class="fas fa-search"></i></a>
+                                                      </div>
+                                                    </td>
+
+                                                    <td>
+                                                      <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                                        <a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                                                        <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                                        <a href="#" class="btn btn-success"><i class="fas fa-search"></i></a>
+                                                      </div>
+                                                    </td>
                                                 </tr>
                                             @endif
                                     @endforeach
