@@ -23,7 +23,7 @@
 
             <div class="form-group">
                 <div class="alert alert-info">
-                    You are creating a new <b>lecture</b> for <b>unit {{ $lessonUnit }}</b>. Please select, from the drop down menu below, what lesson you want to associate this lecture with.
+                    You are creating a new <b>lecture</b>. Please select, from the drop down menu below, what lesson you want to associate this lecture with.
                     <input type="hidden" value="{{ $lessonUnit }}" name="unit">
                 </div>
             </div>
@@ -33,7 +33,7 @@
                 <select class="form-control" id="lesson" name="lesson">
 
                     @foreach($lessons as $lesson)
-                        <option value="{{ $lesson->id }}">Lesson {{ $lesson->id }}: {{ $lesson->title }}</option>
+                        <option value="{{ $lesson->id }}">{{ $lesson->title }}</option>
                     @endforeach
 
                 </select>
