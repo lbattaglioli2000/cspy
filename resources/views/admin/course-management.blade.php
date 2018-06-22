@@ -21,7 +21,7 @@
                 <div class="card-header" id="heading{{ $unit->id }}">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse{{ $unit->id }}" aria-expanded="false" aria-controls="collapse{{ $unit->id }}">
-                            Unit {{ $unit->id }}: {!! html_entity_decode($unit->title, ENT_QUOTES) !!}
+                            {!! html_entity_decode($unit->title, ENT_QUOTES) !!}
                         </button>
                     </h5>
                 </div>
@@ -37,7 +37,7 @@
                               <div class="form-group">
                                 <div class="input-group">
                                   <div class="input-group-prepend">
-                                    <span class="input-group-text">Unit {{ $unit->id }}:</span>
+                                    <span class="input-group-text">Unit name:</span>
                                   </div>
                                   <input type="hidden" value="{{ $unit->id }}" name="unit_id">
                                   <input type="text" class="form-control" value="{{ $unit->title }}" name="name" aria-describedby="inputGroup-sizing-default">

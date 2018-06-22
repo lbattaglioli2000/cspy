@@ -30,7 +30,7 @@
                 <label>Unit</label>
                 <select class="form-control" id="unit" name="unit">
                     @foreach($units as $unit)
-                        <option value="{{ $unit->id }}">Unit {{ $unit->id }}: {{ $unit->title }}</option>
+                        <option value="{{ $unit->id }}">{{ $unit->title }}</option>
                     @endforeach
                 </select>
             </div>

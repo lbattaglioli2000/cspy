@@ -16,7 +16,7 @@
                         <div class="card-header" id="heading{{ $unit->id }}">
                             <h5 class="mb-0">
                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse{{ $unit->id }}" aria-expanded="false" aria-controls="collapse{{ $unit->id }}">
-                                    Unit {{ $unit->id }}: {!! html_entity_decode($unit->title, ENT_QUOTES) !!}
+                                    {!! html_entity_decode($unit->title, ENT_QUOTES) !!}
                                 </button>
                             </h5>
                         </div>
