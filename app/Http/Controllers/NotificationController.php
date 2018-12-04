@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\NewNotification;
 use Illuminate\Http\Request;
 use App\Notification;
@@ -47,7 +47,7 @@ class NotificationController extends Controller
 
     $users = User::all();
     
-    Mail::to($users)->send(new NewNotification($notification));
+    Mail::bbc($users)->send(new NewNotification($notification));
 
     return redirect(route('admin.new.notification'));
 
