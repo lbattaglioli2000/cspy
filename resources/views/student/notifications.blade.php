@@ -1,40 +1,54 @@
-@extends("student.layouts.master")
+@extends('student.layouts.master')
 
-@section("title")
+@section('title')
     Notifications
 @endsection
 
-@section("content")
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Notifications</h1>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="accordion">
-        @if(count($notifications) == 0)
-          <div class="alert alert-info">
-            There are no new notifications.
-          </div>
-        @else
-            @foreach($notifications as $notification)
-                <div class="card">
-                    <div class="card-header" id="heading{{ $notification->id }}">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse{{ $notification->id }}" aria-expanded="false" aria-controls="collapse{{ $notification->id }}">
-                                {{ $notification->title }}
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapse{{ $notification->id }}" class="collapse" aria-labelledby="heading{{ $notification->id }}" data-parent="#accordion">
-                        <div class="card-body">
-                            {!! $notification->body !!}
+@section('content')
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 col-xl-8">
+                    <!-- Header -->
+                    <div class="header mt-md-5">
+                        <div class="header-body">
+                            <div class="row align-items-center">
+                                <div class="col">
+
+                                    <!-- Pretitle -->
+                                    <h6 class="header-pretitle">
+                                        Here are all of your
+                                    </h6>
+
+                                    <!-- Title -->
+                                    <h1 class="header-title">
+                                        Notifications
+                                    </h1>
+
+                                </div>
+                            </div> <!-- / .row -->
+
                         </div>
+
                     </div>
+
+                    @foreach(App\Notification::all() as $notification)
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>{{ $notification->title }}</h3>
+                                {!! $notification->body !!}
+                            </div>
+                        </div>
+                    @endforeach
+
+                    <hr>
+
+                    <a href="{{ route('student') }}" class="btn btn-lg btn-outline-primary btn-block">Return to student dashboard</a>
+
+                    <br>
+
                 </div>
-                <br>
-            @endforeach
-        @endif
+            </div>
         </div>
-      </div>
     </div>
 @endsection

@@ -41,6 +41,10 @@ class HomeController extends Controller
       return view('student.settings');
     }
 
+    public function notifications(){
+        return view('student.notifications');
+    }
+
     public function cloud9()
     {
       return view('student.cloud9');
