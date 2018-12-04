@@ -41,7 +41,7 @@
                     <hr>
 
                     @if($lesson->challenge()->exists())
-                        <a href="{{ route('student.recap', $lesson->id) }}" class="btn btn-lg btn-outline-primary btn-block">Go to lesson challenge</a> <a href="{{ route('student.unit', $lesson->unit->id) }}" class="btn btn-lg btn-outline-primary btn-block">Go back to unit overview</a>
+                        <a href="{{ route('student.challenge', $lesson->id) }}" class="btn btn-lg btn-outline-primary btn-block">Go to lesson challenge</a> <a href="{{ route('student.unit', $lesson->unit->id) }}" class="btn btn-lg btn-outline-primary btn-block">Go back to unit overview</a>
                     @else
                         <a href="{{ route('student.unit', $lesson->unit->id) }}" class="btn btn-lg btn-outline-primary btn-block">Go back to unit overview</a>
                     @endif
