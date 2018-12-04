@@ -13,47 +13,30 @@ class CourseController extends Controller
   {
       $this->middleware('auth');
   }
-    public function lecture($unit, $lesson)
+    public function lecture(Lesson $lesson)
     {
-        $lessons = Unit::find($unit)->lessons()->get();
-        if(count($lessons) > 0){
-            foreach($lessons as $l)
-            {
-                if($l->id == $lesson){
-                    return view('student.lecture', ['lesson' => $l]);
-                }
-            }
+        if($lesson->lecture()->exists()) {
+            return view('student.lecture', compact('lesson'));
+        }else{
+            return view('student.notfound');
         }
-        return view('student.error');
     }
 
-    public function recap($unit, $lesson)
+    public function recap(Lesson $lesson)
     {
-        $lessons = Unit::find($unit)->lessons()->get();
-
-        if(count($lessons) > 0){
-            foreach($lessons as $l)
-            {
-                if($l->id == $lesson){
-                    return view('student.recap', ['lesson' => $l]);
-                }
-            }
+        if($lesson->recap()->exists()) {
+            return view('student.recap', compact('lesson'));
+        }else{
+            return view('student.notfound');
         }
-        return view('student.error');
     }
 
-    public function challenge($unit, $lesson)
+    public function challenge(Lesson $lesson)
     {
-        $lessons = Unit::find($unit)->lessons()->get();
-
-        if(count($lessons) > 0){
-            foreach($lessons as $l)
-            {
-                if($l->id == $lesson){
-                    return view('student.challenge', ['lesson' => $l]);
-                }
-            }
+        if($lesson->challenge()->exists()) {
+            return view('student.challenge', compact('lesson'));
+        }else{
+            return view('student.notfound');
         }
-        return view('student.error');
     }
 }

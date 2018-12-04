@@ -5,64 +5,145 @@
 @endsection
 
 @section('content')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Course Dashboard</h1>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div id="accordion">
-                @foreach($units as $unit)
-                    <div class="card">
-                        <div class="card-header" id="heading{{ $unit->id }}">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse{{ $unit->id }}" aria-expanded="false" aria-controls="collapse{{ $unit->id }}">
-                                    {!! html_entity_decode($unit->title, ENT_QUOTES) !!}
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapse{{ $unit->id }}" class="collapse" aria-labelledby="heading{{ $unit->id }}" data-parent="#accordion">
-                            <div class="card-body">
-                                <p><b>Unit Description:</b><br> {!! html_entity_decode($unit->description, ENT_QUOTES) !!}</p>
-                                @if(count($unit->lessons) > 0)
-                                    <table class="table table-bordered responsive">
+    <div class="main-content">
 
-                                        <thead class="thead-dark">
-                                            <tr>
 
-                                                <th scope="col">Lesson</th>
+        <!-- HEADER -->
+        <div class="header">
 
-                                                <th scope="col">Lecture</th>
-                                                <th scope="col">Recap</th>
-                                                <th scope="col">Challenge</th>
+            <!-- Image -->
+            <img src="https://static.techspot.com/images2/news/bigimage/2018/11/2018-11-27-image-36.jpg" class="header-img-top" style="max-height: 450px" alt="...">
 
-                                            </tr>
-                                        </thead>
+            <div class="container-fluid">
 
-                                        <tbody>
-                                            @foreach($unit->lessons as $lesson)
-                                                    @if($lesson->unit_id == $unit->id)
-                                                        <tr>
-                                                            <td>{{ $lesson->title }}</td>
-                                                            <td><a class="btn btn-block btn-outline-primary {{ is_null($lesson->lecture) ? 'disabled' : null }}" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/lecture"><i class="fas fa-video"></i></a></td>
-                                                            <td><a class="btn btn-block btn-outline-danger {{ is_null($lesson->recap) ? 'disabled' : null }}" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/recap"><i class="fas fa-book"></i></a></td>
-                                                            <td><a class="btn btn-block btn-outline-success {{ is_null($lesson->challenge) ? 'disabled' : null }}" href="/student/unit/{{ $unit->id }}/lesson/{{ $lesson->id }}/challenge"><i class="fas fa-code"></i></a></td>
-                                                        </tr>
-                                                    @endif
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                @else
-                                    <div class="alert alert-warning">
-                                        <b>Hey!</b> There's no lessons for this unit yet. Stay tuned for more updates!
-                                    </div>
-                                @endif
+                <!-- Body -->
+                <div class="header-body mt--5 mt-md--6">
+                    <div class="row align-items-end">
+                        <div class="col-auto">
 
+                            <!-- Avatar -->
+                            <div class="avatar avatar-xxl header-avatar-top">
+                                <img src="{{ Auth::user()->profile_image_url }}" alt="..." class="avatar-img rounded-circle border border-4 border-body">
                             </div>
+
+                        </div>
+                        <div class="col mb-3 ml--3 ml-md--2">
+
+                            <!-- Pretitle -->
+                            <h6 class="header-pretitle">
+                                Hey there,
+                            </h6>
+
+                            <!-- Title -->
+                            <h1 class="header-title">
+                                {{ Auth::user()->name }}
+                            </h1>
+
+                        </div>
+                    </div> <!-- / .row -->
+                    <div class="row align-items-center">
+                        <div class="col">
+
+                            <!-- Nav -->
+                            <ul class="nav nav-tabs nav-overflow header-tabs">
+                                <li class="nav-item">
+                                    <a href="/student" class="nav-link active">
+                                        Course
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/student/forum" class="nav-link">
+                                        Forum
+                                    </a>
+                                </li>
+                            </ul>
+
                         </div>
                     </div>
-                    <br>
-                @endforeach
+                </div> <!-- / .header-body -->
+
             </div>
         </div>
-    </div>
+
+        <!-- CONTENT -->
+        <div data-toggle="lists" data-lists-values='["name"]'>
+            <div class="container-fluid" data-toggle="lists" data-lists-class="listAlias" data-lists-values='["name"]'>
+                <div class="row mb-4">
+                    <div class="col">
+
+                        <!-- Form -->
+                        <form>
+                            <div class="input-group input-group-lg input-group-merge">
+                                <input type="text" class="form-control form-control-prepended search" placeholder="Search for a unit">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <span class="fe fe-search"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div> <!-- / .row -->
+
+                <!-- Tab content -->
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="tabPaneTwo" role="tabpanel">
+                        <div class="row list">
+                            @foreach(App\Unit::all() as $unit)
+                            <div class="col-12">
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+
+                                            <div class="col ml--2">
+
+                                                <!-- Title -->
+                                                <h4 class="card-title mb-1 name">
+                                                    <a href="{{ route('student.unit', $unit->id) }}">{{ $unit->title }}</a>
+                                                </h4>
+
+                                                <!-- Text -->
+                                                <p class="card-text small text-muted mb-1">
+                                                    {!! html_entity_decode($unit->description) !!}
+                                                </p>
+
+                                            </div>
+
+                                            <div class="col-auto">
+
+                                                <!-- Dropdown -->
+                                                <div class="dropdown">
+                                                    <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fe fe-more-vertical"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#!" class="dropdown-item">
+                                                            Action
+                                                        </a>
+                                                        <a href="#!" class="dropdown-item">
+                                                            Another action
+                                                        </a>
+                                                        <a href="#!" class="dropdown-item">
+                                                            Something else here
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div> <!-- / .row -->
+                                    </div> <!-- / .card-body -->
+                                </div>
+
+                            </div>
+                            @endforeach
+                        </div> <!-- / .row -->
+                    </div>
+                </div> <!-- / .tab-content -->
+
+            </div>
+        </div>
+
+    </div> <!-- / .main-content -->
 @endsection

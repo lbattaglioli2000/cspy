@@ -91,6 +91,7 @@ Route::prefix('admin')->group(function(){
 
 // STUDENT ROUTES
 Route::prefix('/student')->group(function(){
+
     Route::get('/', 'HomeController@index')->name('student');
     Route::get('/notifications', 'HomeController@notifications')->name('student.notifications');
 
@@ -101,7 +102,6 @@ Route::prefix('/student')->group(function(){
 
     // Student account settings controllers
     Route::get('/settings', 'HomeController@settings')->name('student.settings');
-    Route::post('/settings/password/change', 'HomeController@updatePassword')->name('student.password.update');
 
     Route::get('/cloud9', 'HomeController@cloud9')->name('student.cloud9');
     Route::post('/cloud9', 'HomeController@cloud9Request')->name('student.cloud9.request');
@@ -109,12 +109,15 @@ Route::prefix('/student')->group(function(){
     // Search handler
     Route::get('/search', 'SearchController@lesson')->name('student.search');
 
+    // Student handler for Unit
+    Route::get('/unit/{unit}', 'HomeController@unit')->name('student.unit');
+
     // Student handler for Lectures
-    Route::get('/unit/{unit}/lesson/{lesson}/lecture', 'CourseController@lecture')->name('student.lecture');
+    Route::get('/lecture/{lesson}', 'CourseController@lecture')->name('student.lecture');
 
     // Student handler for Recaps
-    Route::get('/unit/{unit}/lesson/{lesson}/recap', 'CourseController@recap')->name('student.recap');
+    Route::get('/recap/{lesson}', 'CourseController@recap')->name('student.recap');
 
     // Student handler for Challenges
-    Route::get('/unit/{unit}/lesson/{lesson}/challenge', 'CourseController@challenge')->name('student.challenge');
+    Route::get('/challenge/{lesson}', 'CourseController@challenge')->name('student.challenge');
 });

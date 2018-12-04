@@ -2,77 +2,69 @@
 <html lang="en">
 <head>
 
-    <title>@yield("title")</title>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6185605131625070",
+            enable_page_level_ads: true
+        });
+    </script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Custom styles for this template -->
-    <link href="/css/dashboard.css" rel="stylesheet">
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="/dashboard/assets/fonts/feather/feather.min.css">
+    <link rel="stylesheet" href="/dashboard/assets/libs/highlight.js/styles/vs2015.css">
+    <link rel="stylesheet" href="/dashboard/assets/libs/quill/dist/quill.core.css">
+    <link rel="stylesheet" href="/dashboard/assets/libs/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="/dashboard/assets/libs/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/dashboard/assets/css/theme.min.css" id="stylesheetLight">
+    <link rel="stylesheet" href="/dashboard/assets/css/theme-dark.min.css" id="stylesheetDark">
+
+    <style>body { display: none; }</style>
+
+    <script>
+        var colorScheme = ( localStorage.getItem('dashkitColorScheme') ) ? localStorage.getItem('dashkitColorScheme') : 'light';
+    </script>
+
+
+    <title>@yield('title')</title>
 </head>
-
 <body>
 
-@include("student.layouts.nav")
+<!-- NAVIGATION
+================================================== -->
 
-<div class="container-fluid">
-    <div class="row">
+@include('student.layouts.nav')
 
-        @include("student.layouts.sidebar")
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+<!-- MAIN CONTENT
+================================================== -->
 
-            @yield("content")
+@yield('content')
 
-        </main>
-    </div>
-</div>
+
+<!-- JAVASCRIPT
+================================================== -->
+<!-- Libs JS -->
+<script src="/dashboard/assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="/dashboard/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/dashboard/assets/libs/chart.js/dist/Chart.min.js"></script>
+<script src="/dashboard/assets/libs/chart.js/Chart.extension.min.js"></script>
+<script src="/dashboard/assets/libs/highlightjs/highlight.pack.min.js"></script>
+<script src="/dashboard/assets/libs/flatpickr/dist/flatpickr.min.js"></script>
+<script src="/dashboard/assets/libs/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+<script src="/dashboard/assets/libs/list.js/dist/list.min.js"></script>
+<script src="/dashboard/assets/libs/quill/dist/quill.min.js"></script>
+<script src="/dashboard/assets/libs/dropzone/dist/min/dropzone.min.js"></script>
+<script src="/dashboard/assets/libs/select2/dist/js/select2.min.js"></script>
+
+<!-- Theme JS -->
+<script src="/dashboard/assets/js/theme.min.js"></script>
 
 </body>
 </html>
-<script>
-    feather.replace()
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108145541-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-108145541-2');
-</script>
-
-<!-- Gitter Modal -->
-<div class="modal fade bd-example-modal-lg" id="gitter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Live Chat <small>Powered by Gitter.im</small></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-            <div class="col-md-12">
-                <iframe frameborder="none" src="https://gitter.im/Open-CodeGeek/CSPY/~embed" width="100%" height="650px">
-            </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>

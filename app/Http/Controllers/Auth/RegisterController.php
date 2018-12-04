@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Mail\NewAccount;
-use Mail;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -70,9 +71,13 @@ class RegisterController extends Controller
       $user->name = $data['name'];
       $user->email = $data['email'];
       $user->password = Hash::make($data['password']);
+      $user->profile_image_url = Storage::url('public/avatars/default.png');
+      $user->current_unit = 1;
+      $user->current_lesson = 1;
+
       $user->save();
 
-      Mail::to($user)->send(new NewAccount($user));
+      //Mail::to($user)->send(new NewAccount($user));
 
       return $user;
     }

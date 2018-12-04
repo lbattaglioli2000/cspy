@@ -29,21 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $units = Unit::all();
-
-        return view('student.dashboard', [
-            'units' => $units
-        ]);
+        return view('student.dashboard');
     }
 
-    public function notifications()
-    {
-      $notifications = Notification::all();
-
-      return view('student.notifications', [
-        'notifications' => $notifications
-      ]);
-
+    public function unit(Unit $unit){
+        return view('student.unit', compact('unit'));
     }
 
     public function settings()
