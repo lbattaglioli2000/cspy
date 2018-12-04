@@ -40,11 +40,6 @@
                                             {{ $user->name }}
                                         </h4>
 
-                                        <!-- Time -->
-                                        <p class="small text-muted mb-0">
-                                            <span class="fe fe-clock"></span> <time datetime="2018-05-24">Joined CSPY {{ $user->created_at->diffForHumans() }}</time>
-                                        </p>
-
                                     </div>
                                 </div> <!-- / .row -->
                             </a>
