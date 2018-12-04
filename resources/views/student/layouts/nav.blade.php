@@ -23,12 +23,12 @@
                 <div class="my--3">
                     <div class="list-group list-group-flush list">
                         @foreach(App\User::all() as $user)
-                            <a href="team-overview.html" class="list-group-item px-0">
+                            <a href="#" class="list-group-item px-0">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
 
                                         <!-- Avatar -->
-                                        <div class="avatar">
+                                        <div class="avatar {{ $user->isOnline() ? 'avatar-online' : '' }}">
                                             <img src="{{ $user->profile_image_url }}" alt="..." class="avatar-img rounded">
                                         </div>
 

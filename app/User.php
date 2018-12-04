@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Cache;
 
 class User extends Authenticatable
 {
@@ -33,5 +34,10 @@ class User extends Authenticatable
     {
         return $query->where('name', 'like', '%' .$searchTerm. '%')
             ->orWhere('email', 'like', '%' .$searchTerm. '%');
+    }
+
+    public function isOnline()
+    {
+        return Cache::has('user-is-online-' . $this->id);
     }
 }
