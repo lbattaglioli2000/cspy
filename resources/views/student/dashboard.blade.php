@@ -110,28 +110,6 @@
                                                 </p>
 
                                             </div>
-
-                                            <div class="col-auto">
-
-                                                <!-- Dropdown -->
-                                                <div class="dropdown">
-                                                    <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="fe fe-more-vertical"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a href="#!" class="dropdown-item">
-                                                            Action
-                                                        </a>
-                                                        <a href="#!" class="dropdown-item">
-                                                            Another action
-                                                        </a>
-                                                        <a href="#!" class="dropdown-item">
-                                                            Something else here
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
                                         </div> <!-- / .row -->
                                     </div> <!-- / .card-body -->
                                 </div>
