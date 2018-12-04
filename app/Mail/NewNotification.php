@@ -11,11 +11,12 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use Illuminate\Support\Facades\URL;
 
-class NewNotification extends Mailable
+class NewNotification extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    protected $notification;
+    public $notification;
+
     /**
      * Create a new message instance.
      *
@@ -34,11 +35,6 @@ class NewNotification extends Mailable
     public function build()
     {
         return $this->from('admin@codegeek.org')
-                    ->markdown('emails.new.notification')
-                    ->with([
-                      'title' => $this->notification->title,
-                      'body' => $this->notification->body,
-                      'url' => URL::to(route('student.notifications'))
-                    ]);
+                    ->markdown('emails.new.notification');
     }
 }

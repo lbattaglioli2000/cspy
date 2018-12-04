@@ -7,13 +7,13 @@ The CSPY team has just made a new announcement!
 <br><br>
 
 @component('mail::panel')
-## {!! $title !!}
-{!! $body !!}
+## {!! $notification->title !!}
+{!! $notification->body !!}
 @endcomponent
 
 To view all notifications, click the button below:
 
-@component('mail::button', ['url' => $url])
+@component('mail::button', ['url' => 'https://learn.codegeek.org/student/notifications'])
 See all notifications
 @endcomponent
 

@@ -120,4 +120,7 @@ Route::prefix('/student')->group(function(){
 
     // Student handler for Challenges
     Route::get('/challenge/{lesson}', 'CourseController@challenge')->name('student.challenge');
+
+    // Forum
+    Route::get('/forum', 'ForumController@index')->name('student.forum');
 });

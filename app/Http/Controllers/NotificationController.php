@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmail;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewNotification;
 use Illuminate\Http\Request;
@@ -39,17 +40,16 @@ class NotificationController extends Controller
     ]);
 
     $notification = new Notification();
-
     $notification->title = $request->title;
     $notification->body = $request->body;
-
     $notification->save();
 
     $users = User::all();
+    $mailable = new NewNotification($notification);
     
-    Mail::bbc($users)->send(new NewNotification($notification));
+    SendEmail::dispatch($mailable, $users);
 
-    return redirect(route('admin.new.notification'));
+    return view('admin.new.notification', ['units' => Unit::all()]);
 
   }
 
