@@ -71,7 +71,7 @@ class RegisterController extends Controller
       $user->name = $data['name'];
       $user->email = $data['email'];
       $user->password = Hash::make($data['password']);
-      $user->profile_image_url = Storage::url('public/avatars/default.png');
+      $user->profile_image_url = Storage::url('avatars/default.png');
       $user->current_unit = 1;
       $user->current_lesson = 1;
 
