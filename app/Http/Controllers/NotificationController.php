@@ -44,12 +44,11 @@ class NotificationController extends Controller
     $notification->body = $request->body;
     $notification->save();
 
-    $users = User::all();
-    $mailable = new NewNotification($notification);
-    
-    SendEmail::dispatch($mailable, $users);
+    // $users = User::all();
+    // $mailable = new NewNotification($notification);
+    // $mailable->bcc($users);
 
-    return view('admin.new.notification', ['units' => Unit::all()]);
+    return back();
 
   }
 

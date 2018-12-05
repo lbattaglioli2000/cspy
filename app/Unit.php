@@ -12,4 +12,9 @@ class Unit extends Model
     {
         return $this->hasMany(Lesson::class);
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

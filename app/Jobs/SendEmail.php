@@ -40,9 +40,7 @@ class SendEmail implements ShouldQueue
      */
     public function handle()
     {
-        foreach($this->users as $user){
-            Mail::bcc($user)->queue($this->mailable);
-        }
+
     }
 
 }

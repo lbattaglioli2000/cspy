@@ -77,7 +77,7 @@ class RegisterController extends Controller
 
       $user->save();
 
-      //Mail::to($user)->send(new NewAccount($user));
+      Mail::to($user)->send(new NewAccount($user));
 
       return $user;
     }

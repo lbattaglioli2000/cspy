@@ -187,7 +187,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="getting-started.html">
+                    <a class="nav-link " href="{{ route('student.forum') }}">
                         <i class="fe fe-at-sign"></i> Forum
                     </a>
                 </li>

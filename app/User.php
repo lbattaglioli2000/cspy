@@ -30,6 +30,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
     public static function scopeSearch($query, $searchTerm)
     {
         return $query->where('name', 'like', '%' .$searchTerm. '%')

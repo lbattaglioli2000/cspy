@@ -123,4 +123,6 @@ Route::prefix('/student')->group(function(){
 
     // Forum
     Route::get('/forum', 'ForumController@index')->name('student.forum');
+    Route::post('/forum', 'ForumController@post')->name('student.forum.post');
+    Route::post('/forum/comment', 'CommentController@post')->name('student.comment.post');
 });

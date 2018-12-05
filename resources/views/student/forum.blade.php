@@ -28,6 +28,32 @@
                         </div>
                     </div>
 
+                    @if ($errors->any())
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>Uh-oh!</h3>
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
+                    @if (\Illuminate\Support\Facades\Session::has('success'))
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>News flash!</h3>
+                                <div class="alert alert-success">
+                                    {{ \Illuminate\Support\Facades\Session::get('success') }}
+                                </div>
+                            </div>
+                        </div>
+                @endif
+
                     <!-- Card -->
                     <div class="card">
                         <div class="card-body text-center">
@@ -39,648 +65,257 @@
 
                                     <!-- Title -->
                                     <h2>
-                                        Having some trouble with your code? Feeling lost in the sauce? There's no need to worry.
+                                        Having trouble with your code?! Feelin' lost in the sauce?! There's no need to worry.
                                     </h2>
 
                                     <!-- Content -->
                                     <p class="text-muted">
-                                        This is a true story and totally not made up. This is going to be better in the long run but for now this is the way it is.
+                                        We don't want anyone to feel lost or intimidated, which is why we built this forum. Please, make use of this forum
+                                        to post any issues, comments, questions, errors, or concerns you run into and someone
+                                        will help you!
                                     </p>
 
                                     <!-- Button -->
-                                    <a href="#!" class="btn btn-primary">
-                                        Try it for free
-                                    </a>
+                                    <button id="postButton" onclick="$('#postForm').toggle(500); $('html,body').animate({ scrollTop: $('#postButton').offset().top});" class="btn btn-primary">
+                                        Post a question
+                                    </button>
 
                                 </div>
                             </div> <!-- / .row -->
                         </div>
                     </div>
 
-                    <!-- Top Earners -->
-                    <div class="card">
-                        <div class="card-header">
+                    <div id="postForm" class="card" style="display: none">
+                        <div class="card-body">
 
-                            <!-- Title -->
-                            <h4 class="card-header-title">
-                                Top Earners
-                            </h4>
+                            <form method="post" action="{{ route('student.forum.post') }}" class="mb-4" >
 
-                        </div>
-                        <div class="table-responsive mb-0">
-                            <table class="table table-sm table-nowrap card-table">
-                                <thead>
-                                <tr>
-                                    <th>
-                                        Member
-                                    </th>
-                                    <th>
-                                        Schedule
-                                    </th>
-                                    <th>
-                                        Hours Billed
-                                    </th>
-                                    <th>
-                                        Completion
-                                    </th>
-                                    <th>
-                                        Effective Rate
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
+                                @csrf
 
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-
-                                        <!-- Title -->
-                                        <span>Dianna Smiley</span>
-
-                                    </td>
-                                    <td>
-                                        <span class="text-success">●</span> On Schedule
-                                    </td>
-                                    <td>
-                                        271
-                                    </td>
-                                    <td>
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">
-
-                                                <span class="mr-2">55%</span>
-
-                                            </div>
-                                            <div class="col">
-
-                                                <!-- Progress -->
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </td>
-                                    <td>
-                                        $55.25%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="assets/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-
-                                        <!-- Title -->
-                                        <span>Ab Hadley</span>
-
-                                    </td>
-                                    <td>
-                                        <span class="text-warning">●</span> Delayed
-                                    </td>
-                                    <td>
-                                        44
-                                    </td>
-                                    <td>
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">
-
-                                                <span class="mr-2">25%</span>
-
-                                            </div>
-                                            <div class="col">
-
-                                                <!-- Progress -->
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </td>
-                                    <td>
-                                        $122.52%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="assets/img/avatars/profiles/avatar-3.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-
-                                        <!-- Title -->
-                                        <span>Adolfo Hess</span>
-
-                                    </td>
-                                    <td>
-                                        <span class="text-success">●</span> On Schedule
-                                    </td>
-                                    <td>
-                                        271
-                                    </td>
-                                    <td>
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">
-
-                                                <span class="mr-2">55%</span>
-
-                                            </div>
-                                            <div class="col">
-
-                                                <!-- Progress -->
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </td>
-                                    <td>
-                                        $55.25%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="assets/img/avatars/profiles/avatar-4.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-
-                                        <!-- Title -->
-                                        <span>Daniela Dewitt</span>
-
-                                    </td>
-                                    <td>
-                                        <span class="text-warning">●</span> Delayed
-                                    </td>
-                                    <td>
-                                        44
-                                    </td>
-                                    <td>
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">
-
-                                                <span class="mr-2">25%</span>
-
-                                            </div>
-                                            <div class="col">
-
-                                                <!-- Progress -->
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </td>
-                                    <td>
-                                        $122.52%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-xs d-inline-block mr-2">
-                                            <img src="assets/img/avatars/profiles/avatar-5.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-
-                                        <!-- Title -->
-                                        <span>Miyah Myles</span>
-
-                                    </td>
-                                    <td>
-                                        <span class="text-success">●</span> On Schedule
-                                    </td>
-                                    <td>
-                                        271
-                                    </td>
-                                    <td>
-                                        <div class="row align-items-center no-gutters">
-                                            <div class="col-auto">
-
-                                                <span class="mr-2">55%</span>
-
-                                            </div>
-                                            <div class="col">
-
-                                                <!-- Progress -->
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </td>
-                                    <td>
-                                        $55.25%
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Sales -->
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="row align-items-center">
-                                <div class="col">
-
-                                    <!-- Title -->
-                                    <h4 class="card-header-title">
-                                        Sales increased 45.2% this period!
-                                    </h4>
-
+                                <!-- Project name -->
+                                <div class="form-group">
+                                    <label>
+                                        Post title
+                                    </label>
+                                    <input type="text" name="title" class="form-control">
                                 </div>
-                                <div class="col-auto mr--3">
 
-                                    <!-- Caption -->
-                                    <small class="text-muted">
-                                        Show affiliate:
+                                <div class="form-group">
+                                    <label>What unit in the course does this post pertain to?</label>
+                                    <select class="form-control" id="unit" name="unit">
+                                        <option></option>
+                                        @foreach(\App\Unit::all() as $unit)
+                                            <option value="{{ $unit->id }}">{{ $unit->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <!-- Project description -->
+                                <div class="form-group">
+                                    <label class="mb-1">
+                                        Post description
+                                    </label>
+
+                                    <small class="form-text text-muted">
+                                        You should be as descriptive as possible. You should include code, along with a detailed description of any errors you got and the steps you exercised to try and fix it.
                                     </small>
 
-                                </div>
-                                <div class="col-auto">
+                                    <div data-toggle="quill" class="ql-container ql-snow">
+                                        <div class="ql-editor" data-gramm="false" contenteditable="true"></div>
+                                        <div class="ql-clipboard" contenteditable="true" tabindex="-1">
 
-                                    <!-- Toggle -->
-                                    <div class="custom-control custom-checkbox-toggle">
-                                        <input type="checkbox" class="custom-control-input" id="cardToggle" data-toggle="chart" data-target="#ordersChart" data-add='{"data":{"datasets":[{"data":[15,10,20,12,7,0,8,16,18,16,10,22],"backgroundColor":"#d2ddec","label":"Affiliate"}]}}'>
-                                        <label class="custom-control-label" for="cardToggle"></label>
+                                        </div>
+                                        <div class="ql-tooltip ql-hidden">
+                                            <a class="ql-preview" target="_blank" href="about:blank"></a>
+                                            <input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL">
+                                            <a class="ql-action"></a><a class="ql-remove"></a>
+                                        </div>
                                     </div>
-
                                 </div>
-                            </div> <!-- / .row -->
 
-                        </div>
-                        <div class="card-body">
+                                <input type="hidden" name="post" id="postBody" value="">
 
-                            <!-- Chart -->
-                            <div class="chart">
-                                <canvas id="ordersChart" class="chart-canvas"></canvas>
-                            </div>
+                                <!-- Divider -->
+                                <hr class="mt-5 mb-5">
 
+                                <!-- Buttons -->
+                                <button onclick="$('#postBody').val(document.querySelector('.ql-editor').innerHTML)" type="submit" class="btn btn-block btn-primary">
+                                    Submit your post!
+                                </button>
+
+                            </form>
                         </div>
                     </div>
 
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-12 col-lg-4 order-lg-2">
-
-                                    <!-- Image -->
-                                    <div class="text-center">
-                                        <img src="assets/img/illustrations/happiness.svg" alt="..." class="img-fluid mt--5 mt-lg-0 mb-4 mr-md--5" style="max-width: 272px;">
-                                    </div>
-
-                                </div>
-                                <div class="col-12 col-lg-8 px-4 py-3 order-lg-1">
-
-                                    <!-- Title -->
-                                    <h2>
-                                        We released 2008 new versions of our theme to make the world a better place.
-                                    </h2>
-
-                                    <!-- Content -->
-                                    <p class="text-muted">
-                                        This is a true story and totally not made up. This is going to be better in the long run but for now this is the way it is.
-                                    </p>
-
-                                    <!-- Button -->
-                                    <a href="#!" class="btn btn-primary">
-                                        Try it for free
-                                    </a>
-
-                                </div>
-                            </div> <!-- / .row -->
+                    @if(\App\Post::all()->count() == 0)
+                        <div class="alert alert-info">
+                            Hey, there's no posts! Why don't you introduce yourself to the community to get things started in here!
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-xl-6">
-
-                            <!-- Card -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-
-                                            <!-- Title -->
-                                            <h6 class="card-title text-uppercase text-muted mb-2">
-                                                Budget
-                                            </h6>
-
-                                            <!-- Heading -->
-                                            <span class="h2 mb-0">
-                              $24,500
-                            </span>
-
-                                            <!-- Badge -->
-                                            <span class="badge badge-soft-success mt--1">
-                              +3.5%
-                            </span>
-
-                                        </div>
-                                        <div class="col-auto">
-
-                                            <!-- Icon -->
-                                            <span class="h2 fe fe-dollar-sign text-muted mb-0"></span>
-
-                                        </div>
-                                    </div> <!-- / .row -->
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-12 col-xl-6">
-
-                            <!-- Card -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-
-                                            <!-- Title -->
-                                            <h6 class="card-title text-uppercase text-muted mb-2">
-                                                Progress
-                                            </h6>
-
-                                            <div class="row align-items-center no-gutters">
-                                                <div class="col-auto">
-
-                                                    <!-- Heading -->
-                                                    <span class="h2 mr-2 mb-0">
-                                  84.5%
-                                </span>
-
-                                                </div>
-                                                <div class="col">
-
-                                                    <!-- Progress -->
-                                                    <div class="progress progress-sm">
-                                                        <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-
-                                                </div>
-                                            </div> <!-- / .row -->
-
-                                        </div>
-                                        <div class="col-auto">
-
-                                            <!-- Icon -->
-                                            <span class="h2 fe fe-clipboard text-muted mb-0"></span>
-
-                                        </div>
-                                    </div> <!-- / .row -->
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div> <!-- / .row -->
+                    @endif
 
                     <!-- Card -->
-                    <div class="card">
-                        <div class="card-body">
+                    @foreach(\App\Post::all() as $post)
+                        <div class="card">
+                            <div class="card-body">
 
-                            <!-- Header -->
-                            <div class="mb-3">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
+                                <!-- Header -->
+                                <div class="mb-3">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
 
-                                        <!-- Avatar -->
-                                        <a href="#!" class="avatar">
-                                            <img src="assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </a>
-
-                                    </div>
-                                    <div class="col ml--2">
-
-                                        <!-- Title -->
-                                        <h4 class="card-title mb-1">
-                                            Dianna Smiley
-                                        </h4>
-
-                                        <!-- Time -->
-                                        <p class="card-text small text-muted">
-                                            <span class="fe fe-clock"></span> <time datetime="2018-05-24">4hr ago</time>
-                                        </p>
-
-                                    </div>
-                                    <div class="col-auto">
-
-                                        <!-- Dropdown -->
-                                        <div class="dropdown">
-                                            <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
+                                            <!-- Avatar -->
+                                            <a href="#!" class="avatar">
+                                                <img src="{{ $post->user->profile_image_url }}" alt="..." class="avatar-img rounded-circle">
                                             </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a href="#!" class="dropdown-item">
-                                                    Action
-                                                </a>
-                                                <a href="#!" class="dropdown-item">
-                                                    Another action
-                                                </a>
-                                                <a href="#!" class="dropdown-item">
-                                                    Something else here
-                                                </a>
+
+                                        </div>
+                                        <div class="col ml--2">
+
+                                            <!-- Title -->
+                                            <h4 class="card-title mb-1">
+                                                {{ $post->user->name }}
+                                            </h4>
+
+                                            <!-- Time -->
+                                            <p class="card-text small text-muted">
+                                                <span class="fe fe-clock"></span> {{ $post->created_at->diffForHumans() }}
+                                            </p>
+
+                                        </div>
+                                    </div> <!-- / .row -->
+                                </div>
+
+                                <!-- Text -->
+                                {!! $post->post !!}
+
+                                <!-- Buttons -->
+                                <!--
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col">
+
+                                            <a href="#!" class="btn btn-sm btn-white">
+                                                😬 1
+                                            </a>
+                                            <a href="#!" class="btn btn-sm btn-white">
+                                                👍 2
+                                            </a>
+                                            <a href="#!" class="btn btn-sm btn-white">
+                                                Add Reaction
+                                            </a>
+
+                                        </div>
+                                        <div class="col-auto mr--3">
+
+                                            <div class="avatar-group d-none d-sm-flex">
+                                                @foreach($post->comments() as $comment)
+                                                    <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
+                                                        <img src="{{ $comment->user()->profile_image_url }}" alt="..." class="avatar-img rounded-circle">
+                                                    </a>
+                                                @endforeach
                                             </div>
+
                                         </div>
+                                        <div class="col-auto">
 
-                                    </div>
-                                </div> <!-- / .row -->
-                            </div>
-
-                            <!-- Text -->
-                            <p class="mb-3">
-                                I've been working on shipping the latest version of Launchday. The story I'm trying to focus on is something like "You're launching soon and need to be 100% focused on your product. Don't lose precious days designing, coding, and testing a product site. Instead, build one in minutes."
-                            </p>
-
-                            <p class="mb-4">
-                                What do you y'all think? Would love some feedback from <a href="#!" class="badge badge-soft-primary">@Ab</a> or <a href="#!" class="badge badge-soft-primary">@Adolfo</a>?
-                            </p>
-
-                            <!-- Image -->
-                            <p class="text-center mb-3">
-                                <img src="assets/img/posts/post-1.jpg" alt="..." class="img-fluid rounded">
-                            </p>
-
-                            <!-- Buttons -->
-                            <div class="mb-3">
-                                <div class="row">
-                                    <div class="col">
-
-                                        <a href="#!" class="btn btn-sm btn-white">
-                                            😬 1
-                                        </a>
-                                        <a href="#!" class="btn btn-sm btn-white">
-                                            👍 2
-                                        </a>
-                                        <a href="#!" class="btn btn-sm btn-white">
-                                            Add Reaction
-                                        </a>
-
-                                    </div>
-                                    <div class="col-auto mr--3">
-
-                                        <div class="avatar-group d-none d-sm-flex">
-                                            <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
-                                                <img src="assets/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <a href="#!" class="btn btn-sm btn-white">
+                                                Share
                                             </a>
-                                            <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Adolfo Hess">
-                                                <img src="assets/img/avatars/profiles/avatar-3.jpg" alt="..." class="avatar-img rounded-circle">
-                                            </a>
-                                            <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Daniela Dewitt">
-                                                <img src="assets/img/avatars/profiles/avatar-4.jpg" alt="..." class="avatar-img rounded-circle">
-                                            </a>
-                                            <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Miyah Myles">
-                                                <img src="assets/img/avatars/profiles/avatar-5.jpg" alt="..." class="avatar-img rounded-circle">
-                                            </a>
+
                                         </div>
-
                                     </div>
-                                    <div class="col-auto">
+                                </div>
+                                -->
 
-                                        <a href="#!" class="btn btn-sm btn-white">
-                                            Share
-                                        </a>
+                                <!-- Divider -->
+                                <hr>
 
+                                <!-- Comments -->
+
+                                @if($post->comments()->count() == 0)
+                                    <div class="alert alert-info">
+                                        Hey, there's no comments! Post one!
                                     </div>
-                                </div> <!-- / .row -->
-                            </div>
+                                @endif
 
-                            <!-- Divider -->
-                            <hr>
+                                @foreach($post->comments as $comment)
+                                    <div class="comment mb-3">
+                                        <div class="row">
+                                            <div class="col-auto">
 
-                            <!-- Comments -->
+                                                <!-- Avatar -->
+                                                <a class="avatar" href="#">
+                                                    <img src="{{ $comment->user->profile_image_url }}" alt="..." class="avatar-img rounded-circle">
+                                                </a>
 
-                            <div class="comment mb-3">
-                                <div class="row">
+                                            </div>
+                                            <div class="col ml--2">
+
+                                                <!-- Body -->
+                                                <div class="comment-body">
+
+                                                    <div class="row">
+                                                        <div class="col">
+
+                                                            <!-- Title -->
+                                                            <h5 class="comment-title">
+                                                                {{ $comment->user->name }}
+                                                            </h5>
+
+                                                        </div>
+                                                        <div class="col-auto">
+
+                                                            <!-- Time -->
+                                                            <time class="comment-time">
+                                                                {{ $comment->created_at->toDayDateTimeString() }}
+                                                            </time>
+
+                                                        </div>
+                                                    </div> <!-- / .row -->
+
+                                                    <!-- Text -->
+                                                    <p class="comment-text">
+                                                        {!! $comment->comment !!}
+                                                    </p>
+
+                                                </div>
+
+                                            </div>
+                                        </div> <!-- / .row -->
+                                    </div>
+                                @endforeach
+
+                                <!-- Divider -->
+                                <hr>
+
+                                <!-- Form -->
+                                <div class="row align-items-start">
                                     <div class="col-auto">
 
                                         <!-- Avatar -->
-                                        <a class="avatar" href="profile-posts.html">
-                                            <img src="assets/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </a>
+                                        <div class="avatar">
+                                            <img src="{{ Auth::user()->profile_image_url }}" alt="..." class="avatar-img rounded-circle">
+                                        </div>
 
                                     </div>
                                     <div class="col ml--2">
 
-                                        <!-- Body -->
-                                        <div class="comment-body">
-
-                                            <div class="row">
-                                                <div class="col">
-
-                                                    <!-- Title -->
-                                                    <h5 class="comment-title">
-                                                        Ab Hadley
-                                                    </h5>
-
-                                                </div>
-                                                <div class="col-auto">
-
-                                                    <!-- Time -->
-                                                    <time class="comment-time">
-                                                        11:12
-                                                    </time>
-
-                                                </div>
-                                            </div> <!-- / .row -->
-
-                                            <!-- Text -->
-                                            <p class="comment-text">
-                                                Looking good Dianna! I like the image grid on the left, but it feels like a lot to process and doesn't really <em>show</em> me what the product does? I think using a short looping video or something similar demo'ing the product might be better?
-                                            </p>
-
-                                        </div>
+                                        <!-- Input -->
+                                        <form action="{{ route('student.comment.post') }}" method="post">
+                                            @csrf
+                                            <label class="sr-only">Leave a comment...</label>
+                                            <input type="hidden" name="post" value="{{ $post->id }}">
+                                            <textarea name="comment" class="form-control" placeholder="Leave a comment" rows="2"></textarea>
+                                            <br>
+                                            <button type="submit" class="btn btn-outline-primary">Post comment!</button>
+                                        </form>
 
                                     </div>
                                 </div> <!-- / .row -->
+
                             </div>
-
-                            <div class="comment mb-3">
-                                <div class="row">
-                                    <div class="col-auto">
-
-                                        <!-- Avatar -->
-                                        <a class="avatar" href="profile-posts.html">
-                                            <img src="assets/img/avatars/profiles/avatar-3.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </a>
-
-                                    </div>
-                                    <div class="col ml--2">
-
-                                        <!-- Body -->
-                                        <div class="comment-body">
-
-                                            <div class="row">
-                                                <div class="col">
-
-                                                    <!-- Title -->
-                                                    <h5 class="comment-title">
-                                                        Adolfo Hess
-                                                    </h5>
-
-                                                </div>
-                                                <div class="col-auto">
-
-                                                    <!-- Time -->
-                                                    <time class="comment-time">
-                                                        11:12
-                                                    </time>
-
-                                                </div>
-                                            </div> <!-- / .row -->
-
-                                            <!-- Text -->
-                                            <p class="comment-text">
-                                                Any chance you're going to link the grid up to a public gallery of sites built with Launchday?
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-                                </div> <!-- / .row -->
-                            </div>
-
-                            <!-- Divider -->
-                            <hr>
-
-                            <!-- Form -->
-                            <div class="row align-items-start">
-                                <div class="col-auto">
-
-                                    <!-- Avatar -->
-                                    <div class="avatar">
-                                        <img src="assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
-                                    </div>
-
-                                </div>
-                                <div class="col ml--2">
-
-                                    <!-- Input -->
-                                    <form>
-                                        <label class="sr-only">Leave a comment...</label>
-                                        <textarea class="form-control" placeholder="Leave a comment" rows="2"></textarea>
-                                    </form>
-
-                                </div>
-                            </div> <!-- / .row -->
-
                         </div>
-                    </div>
-
+                    @endforeach
                 </div>
             </div> <!-- / .row -->
         </div>
