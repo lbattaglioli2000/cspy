@@ -77,7 +77,7 @@
                                 "\n" +
                                 "                            <!-- Title -->\n" +
                                 "                            <h5 class=\"comment-title\">\n" +
-                                "                              "+ message.senderId +"\n" +
+                                "                              "+ message.sender.name +"\n" +
                                 "                            </h5>\n" +
                                 "\n" +
                                 "                          </div>\n" +
@@ -85,7 +85,7 @@
                                 "\n" +
                                 "                            <!-- Time -->\n" +
                                 "                            <time class=\"comment-time\">\n" +
-                                "                              11:12\n" +
+                                "                              "+ message.createdAt +"\n" +
                                 "                            </time>\n" +
                                 "\n" +
                                 "                          </div>\n" +
