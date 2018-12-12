@@ -67,14 +67,6 @@
 
                             $("#messages").append("<div class=\"comment mb-3\">\n" +
                                 "                  <div class=\"row\">\n" +
-                                "                    <div class=\"col-auto\">\n" +
-                                "\n" +
-                                "                      <!-- Avatar -->\n" +
-                                "                      <a class=\"avatar\" href=\"profile-posts.html\">\n" +
-                                "                        <img src=\"assets/img/avatars/profiles/avatar-2.jpg\" alt=\"...\" class=\"avatar-img rounded-circle\">\n" +
-                                "                      </a>\n" +
-                                "\n" +
-                                "                    </div>\n" +
                                 "                    <div class=\"col ml--2\">\n" +
                                 "                      \n" +
                                 "                      <!-- Body -->\n" +
