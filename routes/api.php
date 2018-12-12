@@ -16,3 +16,24 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/python/run', function (Request $request){
+
+    $temp = tmpfile();
+
+    $code = $request->code;
+
+    fwrite($temp, $code);
+
+    $command = stream_get_meta_data($temp);
+    $path = $command['uri'];
+
+    $result = shell_exec('python ' . $path);
+
+    fclose($temp); // this removes the file
+
+    return response()->json([
+        'status' => '200',
+        'result' => $result
+    ]);
+});

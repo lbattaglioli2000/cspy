@@ -8,7 +8,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <a class="nav-link {{ Request::is('student/chat') ? 'active' : null }}"  href="{{ route('student.chat') }}" data-toggle="modal" data-target=".bd-example-modal-lg">
                     <i data-feather="send"></i>
                     Chat
                 </a>

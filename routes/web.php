@@ -125,4 +125,9 @@ Route::prefix('/student')->group(function(){
     Route::get('/forum', 'ForumController@index')->name('student.forum');
     Route::post('/forum', 'ForumController@post')->name('student.forum.post');
     Route::post('/forum/comment', 'CommentController@post')->name('student.comment.post');
+
+
 });
+
+// Run Python Code, use AJAX!
+// Route::post('/challenge/run', 'PythonExecutionController@post')->name('student.challenge.run');

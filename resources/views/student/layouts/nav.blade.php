@@ -105,6 +105,50 @@
     </div>
 </div>
 
+<!-- Modal: Live Chat -->
+<div class="modal fade" id="sidebarModalChat" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-vertical" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <!-- Title -->
+                <h4 class="modal-title">
+                    Chat
+                </h4>
+
+                <!-- Close -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">
+                &times;
+              </span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+
+                <div id="messages" style="height: 70%; overflow: scroll;">
+
+                </div>
+
+                <hr>
+
+                <form id="message-form">
+
+                    <div class="form-group">
+                        <textarea  class="form-control" id="newMessage" placeholder="Enter a message"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary btn-block">Send</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- NAV BARS
 ================================================== -->
 
@@ -182,7 +226,7 @@
             <!-- Navigation -->
             <ul class="navbar-nav mb-md-4">
                 <li class="nav-item">
-                    <a class="nav-link " href="getting-started.html">
+                    <a class="nav-link" href="#sidebarModalChat" data-toggle="modal">
                         <i class="fe fe-message-circle"></i> Live Chat
                     </a>
                 </li>

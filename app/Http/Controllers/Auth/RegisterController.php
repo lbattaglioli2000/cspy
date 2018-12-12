@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Mail;
+use Chatkit\Chatkit;
 
 class RegisterController extends Controller
 {
@@ -79,6 +80,18 @@ class RegisterController extends Controller
 
       Mail::to($user)->send(new NewAccount($user));
 
+      $chatkit = new Chatkit([
+          'instance_locator' => 'v1:us1:5904d1c7-f33d-48b1-a5c5-d80a3f2ede36',
+          'key' => 'a9b02b03-0b8e-4dc8-92fd-0ccc6ab63746:pIjjR0WRzXpoMjKPed3PX2hiuMelXoz27fdxJlw1o0U='
+      ]);
+
+      $chatkituser = $chatkit->createUser([
+          'id' => $user->email,
+          'name' => $user->name,
+          'avatar' => $user->profile_image_url
+      ]);
+
       return $user;
+
     }
 }
