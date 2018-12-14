@@ -28,7 +28,7 @@ Route::post('/python/run', function (Request $request){
     $command = stream_get_meta_data($temp);
     $path = $command['uri'];
 
-    $result = shell_exec('python ' . $path);
+    $result = shell_exec('python3 ' . $path);
 
     fclose($temp); // this removes the file
 

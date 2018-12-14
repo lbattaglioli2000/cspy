@@ -41,11 +41,16 @@
 
     <script src="https://unpkg.com/@pusher/chatkit-client@1/dist/web/chatkit.js"></script>
 
+
     <script>
+        // scroll to bottom of chat div
 
-        function send(){
+        var myDiv = $("#messages");
+        myDiv.animate({scrollTop: myDiv.prop("scrollHeight") - myDiv.height()}, 3000);
 
-        }
+    </script>
+
+    <script>
 
         const tokenProvider = new Chatkit.TokenProvider({
             url: "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/5904d1c7-f33d-48b1-a5c5-d80a3f2ede36/token"
