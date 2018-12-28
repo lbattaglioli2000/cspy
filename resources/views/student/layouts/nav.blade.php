@@ -139,7 +139,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-outline-primary btn-block">Send</button>
+                        <button onclick="$('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight')}, 1000);" class="btn btn-outline-primary btn-block">Send</button>
                     </div>
 
                 </form>
