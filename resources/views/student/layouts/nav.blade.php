@@ -135,7 +135,7 @@
                 <form id="message-form">
 
                     <div class="form-group">
-                        <textarea  class="form-control" id="newMessage" placeholder="Enter a message"></textarea>
+                        <textarea onfocus="$('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight')}, 1000);" class="form-control" id="newMessage" placeholder="Enter a message"></textarea>
                     </div>
 
                     <div class="form-group">

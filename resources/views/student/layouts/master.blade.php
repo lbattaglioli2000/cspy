@@ -162,18 +162,5 @@
 <!-- Theme JS -->
 <script src="/dashboard/assets/js/theme.min.js"></script>
 
-<script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-<script src="/ace-builds/src-noconflict/ext-language_tools.js"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/python");
-    editor.setOptions({
-        enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: true
-    });
-</script>
-
 </body>
 </html>
