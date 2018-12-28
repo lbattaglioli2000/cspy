@@ -38,7 +38,7 @@
 
             <div class="form-group">
                 <label>Lesson description</label>
-                <textarea class="form-control" id="summernote" name="body" rows="2"></textarea>
+                <textarea class="editor form-control" id="summernote" name="body" rows="2"></textarea>
             </div>
 
             <div class="form-group">

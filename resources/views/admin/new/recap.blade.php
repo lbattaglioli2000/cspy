@@ -41,7 +41,7 @@
 
             <div class="form-group">
               <label>Lesson recap</label>
-              <textarea class="form-control" name="recap" rows="10"></textarea>
+              <textarea class="editor form-control" name="recap" rows="10"></textarea>
             </div>
 
             <div class="form-group">

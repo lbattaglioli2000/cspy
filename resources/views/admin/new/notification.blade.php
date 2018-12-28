@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
               <label>Notification body</label>
-              <textarea class="form-control" id="summernote" name="body" rows="10"></textarea>
+              <textarea class="editor form-control" id="summernote" name="body" rows="10"></textarea>
             </div>
 
             <div class="form-group">

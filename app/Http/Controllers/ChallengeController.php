@@ -42,6 +42,12 @@ class ChallengeController extends Controller
         $challenge->unit_id = $request->unit;
         $challenge->challenge = $request->challenge;
 
+        $challenge->pre_exercise_code = $request->pre_code;
+        $challenge->sample_code = $request->sample_code;
+        $challenge->solution = $request->solution_code;
+        $challenge->sct = $request->sct_code;
+        $challenge->hint = $request->hint_code;
+
         if($challenge->save()){
           return redirect(route("admin"));
         }else{

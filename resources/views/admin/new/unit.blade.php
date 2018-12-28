@@ -40,7 +40,7 @@
 
         <div class="form-group">
             <label>Unit description</label>
-            <textarea class="form-control" id="body" name="body" rows="2"></textarea>
+            <textarea class="editor form-control" id="body" name="body" rows="2"></textarea>
         </div>
 
         <div class="form-group">

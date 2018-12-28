@@ -21,10 +21,8 @@
 
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=lp10998rs4xqynuhlxjqf70mnnyxpwtn8974nvv0tfjz4g24"></script>
     <script>
-      tinymce.init({ selector:'textarea',
-                     theme: 'modern',
-                     plugins: 'powerpaste lists advlist image imagetools codesample advcode code table media autolink',
-                     toolbar: "lists advlist image imagetools codesample advcode code table media"
+      tinymce.init({ selector:'textarea.editor',
+                     theme: 'modern'
                    });
     </script>
 

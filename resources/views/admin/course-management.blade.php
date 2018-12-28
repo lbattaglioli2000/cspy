@@ -45,7 +45,7 @@
                               </div>
                               <div class="form-group">
                                 <div class="input-group">
-                                  <textarea class="form-control" id="body" value="{{ $unit->description }}" name="description" rows="2">{!! $unit->description !!}</textarea>
+                                  <textarea class="editor form-control" id="body" value="{{ $unit->description }}" name="description" rows="2">{!! $unit->description !!}</textarea>
                                 </div>
                               </div>
                               <div class="form-group">
