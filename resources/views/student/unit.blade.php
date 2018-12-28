@@ -41,13 +41,19 @@
                                         {!! html_entity_decode($lesson->description) !!}
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <a href="{{ route('student.lecture', $lesson->id) }}" class="btn btn-outline-primary btn-block btn-lg">Watch Lecture</a>
+                                                @if($lesson->lecture()->exists())
+                                                    <a href="{{ route('student.lecture', $lesson->id) }}" class="btn btn-outline-primary btn-block btn-lg">Watch Lecture</a>
+                                                @endif
                                             </div>
                                             <div class="col-md-4">
-                                                <a href="{{ route('student.recap', $lesson->id) }}" class="btn btn-outline-primary btn-block btn-lg">Read Recap</a>
+                                                @if($lesson->recap()->exists())
+                                                    <a href="{{ route('student.recap', $lesson->id) }}" class="btn btn-outline-primary btn-block btn-lg">Read Recap</a>
+                                                @endif
                                             </div>
                                             <div class="col-md-4">
-                                                <a href="{{ route('student.challenge', $lesson->id) }}" class="btn btn-outline-primary btn-block btn-lg">Try a Challenge</a>
+                                                @if($lesson->challenge()->exists())
+                                                    <a href="{{ route('student.challenge', $lesson->id) }}" class="btn btn-outline-primary btn-block btn-lg">Try a Challenge</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
