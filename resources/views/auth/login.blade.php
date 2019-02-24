@@ -73,7 +73,7 @@
                                             <label class="form-control-label">Password</label>
                                         </div>
                                         <div class="mb-2">
-                                            <a href="recover.html" class="small text-light text-unerline--dashed">Lost password?</a>
+                                            <a href="{{ route('password.request') }}" class="small text-light text-unerline--dashed">Lost password?</a>
                                         </div>
                                     </div>
                                     <div class="input-group input-group-transparent">

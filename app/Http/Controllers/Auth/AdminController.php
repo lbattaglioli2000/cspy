@@ -14,6 +14,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
+use Chatkit\Chatkit;
+
 class AdminController extends Controller
 {
     /**
@@ -59,7 +61,16 @@ class AdminController extends Controller
     public function deleteUser($id)
     {
         $user = User::find($id);
+
+        $chatkit = new Chatkit([
+            'instance_locator' => 'v1:us1:5904d1c7-f33d-48b1-a5c5-d80a3f2ede36',
+            'key' => 'a9b02b03-0b8e-4dc8-92fd-0ccc6ab63746:pIjjR0WRzXpoMjKPed3PX2hiuMelXoz27fdxJlw1o0U='
+        ]);
+
+        $chatkit->deleteUser(['id' => $user->email]);
+
         $user->delete();
+        
         return redirect("/admin/users");
     }
 

@@ -17,7 +17,7 @@
 
                                     <!-- Pretitle -->
                                     <h6 class="header-pretitle">
-                                        Lecture for
+                                        Recap for
                                     </h6>
 
                                     <!-- Title -->

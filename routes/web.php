@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/overview', function () {
-    return view('overview');
+Route::get('/careers', function () {
+    return view('careers');
 });
 
 // AUTHENTICATION ROUTES
@@ -102,6 +102,7 @@ Route::prefix('/student')->group(function(){
 
     // Student account settings controllers
     Route::get('/settings', 'HomeController@settings')->name('student.settings');
+    Route::post('/settings/password/update', 'UserController@updatePassword')->name('student.update.password');
 
     Route::get('/cloud9', 'HomeController@cloud9')->name('student.cloud9');
     Route::post('/cloud9', 'HomeController@cloud9Request')->name('student.cloud9.request');

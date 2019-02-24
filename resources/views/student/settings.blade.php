@@ -29,74 +29,29 @@
 
                                 </div>
                             </div> <!-- / .row -->
-                            <div class="row align-items-center">
-                                <div class="col">
-
-                                    <!-- Nav -->
-                                    <ul class="nav nav-tabs nav-overflow header-tabs">
-                                        <li class="nav-item">
-                                            <a href="#!" class="nav-link active">
-                                                General
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#!" class="nav-link">
-                                                Profile
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#!" class="nav-link">
-                                                Billing
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#!" class="nav-link">
-                                                Notifications
-                                            </a>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
                         </div>
                     </div>
 
                     <!-- Form -->
-                    <form class="mb-4">
 
                         <div class="row">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-12">
 
                                 <!-- First name -->
                                 <div class="form-group">
 
                                     <!-- Label -->
                                     <label>
-                                        First name
+                                        Name
                                     </label>
 
                                     <!-- Input -->
-                                    <input type="text" class="form-control">
+                                    <input value="{{ Auth::user()->name }}" type="text" class="form-control">
 
                                 </div>
 
                             </div>
-                            <div class="col-12 col-md-6">
 
-                                <!-- Last name -->
-                                <div class="form-group">
-
-                                    <!-- Label -->
-                                    <label>
-                                        Last name
-                                    </label>
-
-                                    <!-- Input -->
-                                    <input type="text" class="form-control">
-
-                                </div>
-
-                            </div>
                             <div class="col-12">
 
                                 <!-- Email address -->
@@ -113,120 +68,8 @@
                                     </small>
 
                                     <!-- Input -->
-                                    <input type="email" class="form-control">
+                                    <input value="{{ Auth::user()->email }}" type="email" class="form-control">
 
-                                </div>
-
-                            </div>
-                            <div class="col-12 col-md-6">
-
-                                <!-- Phone -->
-                                <div class="form-group">
-
-                                    <!-- Label -->
-                                    <label>
-                                        Phone
-                                    </label>
-
-                                    <!-- Input -->
-                                    <input type="text" class="form-control mb-3" placeholder="(___)___-____" data-mask="(000) 000-0000" autocomplete="off" maxlength="14">
-
-                                </div>
-
-                            </div>
-                            <div class="col-12 col-md-6">
-
-                                <!-- Birthday -->
-                                <div class="form-group">
-
-                                    <!-- Label -->
-                                    <label>
-                                        Birthday
-                                    </label>
-
-                                    <!-- Input -->
-                                    <input type="text" class="form-control flatpickr-input" data-toggle="flatpickr" readonly="readonly">
-
-                                </div>
-
-                            </div>
-                        </div> <!-- / .row -->
-
-                        <!-- Divider -->
-                        <hr class="mt-4 mb-5">
-
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-
-                                <!-- Public profile -->
-                                <div class="form-group">
-
-                                    <!-- Label -->
-                                    <label class="mb-1">
-                                        Public profile
-                                    </label>
-
-                                    <!-- Form text -->
-                                    <small class="form-text text-muted">
-                                        Making your profile public means that anyone on the Dashkit network will be able to find you.
-                                    </small>
-
-                                    <div class="row">
-                                        <div class="col-auto">
-
-                                            <!-- Toggle -->
-                                            <div class="custom-control custom-checkbox-toggle">
-                                                <input type="checkbox" class="custom-control-input" id="toggleOne">
-                                                <label class="custom-control-label" for="toggleOne"></label>
-                                            </div>
-
-                                        </div>
-                                        <div class="col ml--2">
-
-                                            <!-- Help text -->
-                                            <small class="text-muted">
-                                                You're currently invisible
-                                            </small>
-
-                                        </div>
-                                    </div> <!-- / .row -->
-                                </div>
-
-                            </div>
-                            <div class="col-12 col-md-6">
-
-                                <!-- Allow for additional Bookings -->
-                                <div class="form-group">
-
-                                    <!-- Label -->
-                                    <label class="mb-1">
-                                        Allow for additional Bookings
-                                    </label>
-
-                                    <!-- Form text -->
-                                    <small class="form-text text-muted">
-                                        If you are available for hire outside of the current situation, you can encourage others to hire you.
-                                    </small>
-
-                                    <div class="row">
-                                        <div class="col-auto">
-
-                                            <!-- Toggle -->
-                                            <div class="custom-control custom-checkbox-toggle">
-                                                <input type="checkbox" class="custom-control-input" id="toggleTwo" checked="">
-                                                <label class="custom-control-label" for="toggleTwo"></label>
-                                            </div>
-
-                                        </div>
-                                        <div class="col ml--2">
-
-                                            <!-- Help text -->
-                                            <small class="text-muted">
-                                                You're currently available
-                                            </small>
-
-                                        </div>
-                                    </div> <!-- / .row -->
                                 </div>
 
                             </div>
@@ -271,6 +114,28 @@
                             </div>
                             <div class="col-12 col-md-6">
 
+                              <form action="{{ route('student.update.password') }}" method="post">
+
+                                @csrf
+
+                                @if(Session::has('success'))
+                                <p class="alert alert-success">{{ Session::get('success') }}</p>
+                                @endif
+
+                                @if(Session::has('error'))
+                                <p class="alert alert-danger">{{ Session::get('error') }}</p>
+                                @endif
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
                                 <!-- Password -->
                                 <div class="form-group">
 
@@ -280,7 +145,7 @@
                                     </label>
 
                                     <!-- Input -->
-                                    <input type="password" class="form-control">
+                                    <input name="current_password" type="password" class="form-control">
 
                                 </div>
 
@@ -293,7 +158,7 @@
                                     </label>
 
                                     <!-- Input -->
-                                    <input type="password" class="form-control">
+                                    <input name="password" type="password" class="form-control">
 
                                 </div>
 
@@ -306,7 +171,7 @@
                                     </label>
 
                                     <!-- Input -->
-                                    <input type="password" class="form-control">
+                                    <input name="password_confirmation" type="password" class="form-control">
 
                                 </div>
 
@@ -315,10 +180,10 @@
                                     Update password
                                 </button>
 
+                              </form>
+
                             </div>
                         </div> <!-- / .row -->
-
-                    </form>
 
                 </div>
             </div> <!-- / .row -->

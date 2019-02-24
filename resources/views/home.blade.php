@@ -41,7 +41,7 @@
             <div class="container pt-lg pb-xl-md position-relative zindex-100">
                 <div class="row">
                     <div class="col-lg-5 text-center text-lg-left">
-                        <a href="pages/pages-shop.html" class="alert alert-news" data-toggle="tooltip" data-original-title="See changelog">
+                        <a href="#" class="alert alert-news" data-toggle="tooltip" data-original-title="In this unit, we'll explore functions in depth.">
                             <span class="badge badge-pill badge-info">New</span>
                             <span class="alert-content">Unit 3 is on the way!</span>
                             <i class="fas fa-angle-right"></i>
@@ -180,6 +180,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-4">
+                        <div class="card shadow border-0 mb-4">
+                            <div class="card-body py-5">
+                                <div class="d-flex align-items-start">
+                                    <div class="icon icon-shape icon-pink rounded-circle">
+                                        <i class="fas fa-magic"></i>
+                                    </div>
+                                    <div class="icon-text pl-4">
+                                        <h5 class="font-weight-bold">Autograded challenges with feedback</h5>
+                                    </div>
+                                </div>
+                                <p class="mt-4">It's important to have feedback when learning code, this helps you better understand what you're doing right, and what you're doing wrong.<br></p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -196,7 +213,7 @@
                                     We want you to learn the key fundamentals of programming so you can apply them to learn higher level languages such as Java or C#. You will learn to use code to solve real problems. We will learn things such as functions, classes and objects, file input and output, and many more interesting topics. As discussed above, we’ll have final projects to help enforce the skills we've learned and actually get you to apply them, and create something that is actually pretty cool, and useful.
                                 </p>
                                 <div class="btn-container mt-5">
-                                    <a href="https://docs.google.com/document/d/1pMg04gNbXQQy9islPiR7XdTskhx7jNXtvvfpR32N9L0/edit?usp=sharing" class="btn btn-white btn-circle btn-translate--hover px-4 mr-lg-4">See the syllabus</a>
+                                    <a href="https://docs.google.com/document/d/1pMg04gNbXQQy9islPiR7XdTskhx7jNXtvvfpR32N9L0/edit?usp=sharing" class="btn btn-white btn-circle btn-translate--hover px-4 mr-lg-4" target="_blank">See the syllabus</a>
                                     <a href="{{ route('register') }}" class="btn btn-warning btn-circle btn-translate--hover px-4">Register</a>
                                 </div>
                             </div>
@@ -218,7 +235,7 @@
                                     </div>
                                     <div class="icon-text">
                                         <h3 class="text-white h4">10 in-depth units</h3>
-                                        <p class="text-white mb-0">We created 10 units that go really in depth with various computer science topics. Topics range from functions, object-oriented programming, data structures, and more!</p>
+                                        <p class="text-white mb-0">We mapped out 10 different units that go really in depth with various computer science topics. Topics range from functions, to object-oriented programming, to data structures, and much more!</p>
                                     </div>
                                 </div>
                             </div>
@@ -233,7 +250,7 @@
                                     </div>
                                     <div class="icon-text">
                                         <h3 class="h4">Send us feedback</h3>
-                                        <p class="mb-0">We want to hear what you thing about our CSPY. We are here to help and to take feedback anytime: <strong class="text-dark">hi@codegeek.org</strong>
+                                        <p class="mb-0">We're working hard on CSPY, and we want to hear what you think about it. We are here to help and to take any feedback you have. Drop us a line anytime!<br><strong class="text-dark">hi@codegeek.org</strong>
                                         </p>
                                     </div>
                                 </div>
