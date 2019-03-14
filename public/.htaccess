@@ -1,10 +1,15 @@
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
+<<<<<<< HEAD
         Options -MultiViews -Indexes
+=======
+        Options -MultiViews
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     </IfModule>
 
     RewriteEngine On
 
+<<<<<<< HEAD
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -13,9 +18,21 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
+=======
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+<<<<<<< HEAD
+=======
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
 </IfModule>

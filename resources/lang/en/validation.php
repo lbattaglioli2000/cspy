@@ -16,13 +16,19 @@ return [
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',
+<<<<<<< HEAD
     'after_or_equal'       => 'The :attribute must be a date after or equal to :date.',
+=======
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     'alpha'                => 'The :attribute may only contain letters.',
     'alpha_dash'           => 'The :attribute may only contain letters, numbers, and dashes.',
     'alpha_num'            => 'The :attribute may only contain letters and numbers.',
     'array'                => 'The :attribute must be an array.',
     'before'               => 'The :attribute must be a date before :date.',
+<<<<<<< HEAD
     'before_or_equal'      => 'The :attribute must be a date before or equal to :date.',
+=======
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     'between'              => [
         'numeric' => 'The :attribute must be between :min and :max.',
         'file'    => 'The :attribute must be between :min and :max kilobytes.',
@@ -41,14 +47,21 @@ return [
     'email'                => 'The :attribute must be a valid email address.',
     'exists'               => 'The selected :attribute is invalid.',
     'file'                 => 'The :attribute must be a file.',
+<<<<<<< HEAD
     'filled'               => 'The :attribute field must have a value.',
+=======
+    'filled'               => 'The :attribute field is required.',
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     'image'                => 'The :attribute must be an image.',
     'in'                   => 'The selected :attribute is invalid.',
     'in_array'             => 'The :attribute field does not exist in :other.',
     'integer'              => 'The :attribute must be an integer.',
     'ip'                   => 'The :attribute must be a valid IP address.',
+<<<<<<< HEAD
     'ipv4'                 => 'The :attribute must be a valid IPv4 address.',
     'ipv6'                 => 'The :attribute must be a valid IPv6 address.',
+=======
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     'json'                 => 'The :attribute must be a valid JSON string.',
     'max'                  => [
         'numeric' => 'The :attribute may not be greater than :max.',
@@ -65,7 +78,10 @@ return [
         'array'   => 'The :attribute must have at least :min items.',
     ],
     'not_in'               => 'The selected :attribute is invalid.',
+<<<<<<< HEAD
     'not_regex'            => 'The :attribute format is invalid.',
+=======
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     'numeric'              => 'The :attribute must be a number.',
     'present'              => 'The :attribute field must be present.',
     'regex'                => 'The :attribute format is invalid.',

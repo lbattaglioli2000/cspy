@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
+<<<<<<< HEAD
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -37,3 +38,8 @@ Route::post('/python/run', function (Request $request){
         'result' => $result
     ]);
 });
+=======
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:api');
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe

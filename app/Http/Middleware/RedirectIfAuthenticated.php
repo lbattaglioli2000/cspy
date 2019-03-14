@@ -17,6 +17,7 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+<<<<<<< HEAD
         switch ($guard){
             case 'admin':
                 if(Auth::guard($guard)->check()){
@@ -28,6 +29,10 @@ class RedirectIfAuthenticated
                 if (Auth::guard($guard)->check()){
                     return redirect()->route("student");
                 }
+=======
+        if (Auth::guard($guard)->check()) {
+            return redirect('/home');
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
         }
 
         return $next($request);

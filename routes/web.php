@@ -1,9 +1,14 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
+<<<<<<< HEAD
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
@@ -132,3 +137,14 @@ Route::prefix('/student')->group(function(){
 
 // Run Python Code, use AJAX!
 // Route::post('/challenge/run', 'PythonExecutionController@post')->name('student.challenge.run');
+=======
+| This file is where you may define all of the routes that are handled
+| by your application. Just tell Laravel the URIs it should respond
+| to using a Closure or controller method. Build something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe

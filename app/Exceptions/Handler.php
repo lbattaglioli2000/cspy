@@ -3,19 +3,28 @@
 namespace App\Exceptions;
 
 use Exception;
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Response;
+=======
+use Illuminate\Auth\AuthenticationException;
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
     /**
+<<<<<<< HEAD
      * A list of the exception types that are not reported.
+=======
+     * A list of the exception types that should not be reported.
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
      *
      * @var array
      */
     protected $dontReport = [
+<<<<<<< HEAD
         //
     ];
 
@@ -27,11 +36,24 @@ class Handler extends ExceptionHandler
     protected $dontFlash = [
         'password',
         'password_confirmation',
+=======
+        \Illuminate\Auth\AuthenticationException::class,
+        \Illuminate\Auth\Access\AuthorizationException::class,
+        \Symfony\Component\HttpKernel\Exception\HttpException::class,
+        \Illuminate\Database\Eloquent\ModelNotFoundException::class,
+        \Illuminate\Session\TokenMismatchException::class,
+        \Illuminate\Validation\ValidationException::class,
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     ];
 
     /**
      * Report or log an exception.
      *
+<<<<<<< HEAD
+=======
+     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+     *
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
      * @param  \Exception  $exception
      * @return void
      */
@@ -49,6 +71,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+<<<<<<< HEAD
       if ($exception instanceof \Illuminate\Session\TokenMismatchException) {
        return redirect()
               ->back()
@@ -58,12 +81,25 @@ class Handler extends ExceptionHandler
         return parent::render($request, $exception);
     }
 
+=======
+        return parent::render($request, $exception);
+    }
+
+    /**
+     * Convert an authentication exception into an unauthenticated response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @return \Illuminate\Http\Response
+     */
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->expectsJson()) {
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
+<<<<<<< HEAD
         $guard = array_get($exception->guards(), 0);
 
         switch($guard)
@@ -78,5 +114,8 @@ class Handler extends ExceptionHandler
         }
 
         return redirect()->guest(route($login));
+=======
+        return redirect()->guest('login');
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     }
 }

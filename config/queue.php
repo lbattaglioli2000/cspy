@@ -4,6 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+<<<<<<< HEAD
     | Default Queue Connection Name
     |--------------------------------------------------------------------------
     |
@@ -14,6 +15,20 @@ return [
     */
 
     'default' => env('QUEUE_DRIVER', 'database'),
+=======
+    | Default Queue Driver
+    |--------------------------------------------------------------------------
+    |
+    | The Laravel queue API supports a variety of back-ends via an unified
+    | API, giving you convenient access to each back-end using the same
+    | syntax for each one. Here you may set the default queue driver.
+    |
+    | Supported: "sync", "database", "beanstalkd", "sqs", "redis", "null"
+    |
+    */
+
+    'default' => env('QUEUE_DRIVER', 'sync'),
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
 
     /*
     |--------------------------------------------------------------------------
@@ -24,8 +39,11 @@ return [
     | is used by your application. A default configuration has been added
     | for each back-end shipped with Laravel. You are free to add more.
     |
+<<<<<<< HEAD
     | Drivers: "sync", "database", "beanstalkd", "sqs", "redis", "null"
     |
+=======
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     */
 
     'connections' => [
@@ -50,11 +68,19 @@ return [
 
         'sqs' => [
             'driver' => 'sqs',
+<<<<<<< HEAD
             'key' => env('SQS_KEY', 'your-public-key'),
             'secret' => env('SQS_SECRET', 'your-secret-key'),
             'prefix' => env('SQS_PREFIX', 'https://sqs.us-east-1.amazonaws.com/your-account-id'),
             'queue' => env('SQS_QUEUE', 'your-queue-name'),
             'region' => env('SQS_REGION', 'us-east-1'),
+=======
+            'key' => 'your-public-key',
+            'secret' => 'your-secret-key',
+            'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
+            'queue' => 'your-queue-name',
+            'region' => 'us-east-1',
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
         ],
 
         'redis' => [
@@ -62,7 +88,10 @@ return [
             'connection' => 'default',
             'queue' => 'default',
             'retry_after' => 90,
+<<<<<<< HEAD
             'block_for' => null,
+=======
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
         ],
 
     ],

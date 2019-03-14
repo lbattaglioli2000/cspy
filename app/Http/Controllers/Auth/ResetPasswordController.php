@@ -21,6 +21,7 @@ class ResetPasswordController extends Controller
     use ResetsPasswords;
 
     /**
+<<<<<<< HEAD
      * Where to redirect users after resetting their password.
      *
      * @var string
@@ -28,6 +29,8 @@ class ResetPasswordController extends Controller
     protected $redirectTo = '/student';
 
     /**
+=======
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
      * Create a new controller instance.
      *
      * @return void

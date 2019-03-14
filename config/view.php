@@ -14,7 +14,11 @@ return [
     */
 
     'paths' => [
+<<<<<<< HEAD
         resource_path('views'),
+=======
+        realpath(base_path('resources/views')),
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     ],
 
     /*

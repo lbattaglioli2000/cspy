@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
+<<<<<<< HEAD
          bootstrap="vendor/autoload.php"
+=======
+         bootstrap="bootstrap/autoload.php"
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -9,12 +13,17 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
+<<<<<<< HEAD
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
 
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
+=======
+        <testsuite name="Application Test Suite">
+            <directory suffix="Test.php">./tests</directory>
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
         </testsuite>
     </testsuites>
     <filter>
@@ -27,6 +36,9 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
+<<<<<<< HEAD
         <env name="MAIL_DRIVER" value="array"/>
+=======
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     </php>
 </phpunit>

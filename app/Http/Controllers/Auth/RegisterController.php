@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+<<<<<<< HEAD
 use App\Mail\NewAccount;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
@@ -11,6 +12,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Mail;
 use Chatkit\Chatkit;
+=======
+use Validator;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\RegistersUsers;
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
 
 class RegisterController extends Controller
 {
@@ -28,11 +34,19 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
+<<<<<<< HEAD
      * Where to redirect users after registration.
      *
      * @var string
      */
     protected $redirectTo = '/student';
+=======
+     * Where to redirect users after login / registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/home';
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
 
     /**
      * Create a new controller instance.
@@ -53,9 +67,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+<<<<<<< HEAD
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+=======
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
         ]);
     }
 
@@ -63,6 +83,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
+<<<<<<< HEAD
      * @return \App\User
      */
     protected function create(array $data)
@@ -93,5 +114,16 @@ class RegisterController extends Controller
 
       return $user;
 
+=======
+     * @return User
+     */
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     }
 }

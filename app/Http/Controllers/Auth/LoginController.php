@@ -25,7 +25,11 @@ class LoginController extends Controller
      *
      * @var string
      */
+<<<<<<< HEAD
     protected $redirectTo = '/student';
+=======
+    protected $redirectTo = '/home';
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
 
     /**
      * Create a new controller instance.
@@ -34,6 +38,10 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+<<<<<<< HEAD
         $this->middleware('guest')->except('logout');
+=======
+        $this->middleware('guest', ['except' => 'logout']);
+>>>>>>> 6fb102cfe084ae84be1199fe2f65100834a307fe
     }
 }
